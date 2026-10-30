@@ -1,0 +1,290 @@
+/************************************* newsletter-modal css start *************************************/
+/*====================================
+    newsletter-modal css
+====================================*/
+@media (min-width: 768px) {
+    .newsletter-modal .newsletter-info .newsletter-content .newsletter-form .news-wrap input {
+        border-radius: var(--border-radius) 0px 0px var(--border-radius);
+    }
+    .newsletter-modal .newsletter-info .newsletter-content .newsletter-form .news-wrap button {
+        border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+    }
+}
+/************************************* newsletter-modal css end *************************************/
+
+/************************************* home-slider css start *************************************/
+/*====================================
+    home-slider swiper css
+====================================*/
+.slider-content .home-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+
+/*====================================
+    slider-content css
+====================================*/
+.slider-content .home-slider h2 {
+    line-height: 1.2;
+}
+@media (min-width: 1600px) {
+    .slider-content .home-slider span {
+        margin-bottom: 34px;
+    }
+    .slider-content .home-slider h2 {
+        font-size: 80px;
+    }
+    .slider-content .home-slider a {
+        margin-top: 51px;
+    }
+}
+
+/*====================================
+    slider-content transition css
+====================================*/
+.slider-content .home-slider.swiper .swiper-slide .slider-image span,
+.slider-content .home-slider.swiper .swiper-slide .slider-image h2,
+.slider-content .home-slider.swiper .swiper-slide .slider-image a {
+    opacity: 0;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image span,
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image h2,
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image a {
+    opacity: 1;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image span {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image h2 {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image a {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+    -webkit-animation-duration: 0.9s;
+    animation-duration: 0.9s;
+}
+
+/*====================================
+    slider-navigation css
+====================================*/
+.slider-content .swiper-buttons .swiper-buttons-wrap button {
+    color: var(--secondary-font-color);
+    background-color: var(--extra-font-color);
+    border: 1px solid rgba(var(--border-color), var(--border-opacity));
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+}
+.slider-content .swiper-buttons .swiper-buttons-wrap button.swiper-prev {
+    left: 5px;
+}
+.slider-content .swiper-buttons .swiper-buttons-wrap button.swiper-next {
+    right: 5px;
+}
+.slider-content .swiper-buttons .swiper-buttons-wrap button:hover {
+    color: var(--extra-font-color);
+    background-color: var(--primary-font-color);
+    border-color: var(--primary-font-color);
+}
+@media (min-width: 1400px) {
+    .slider-content .swiper-buttons .swiper-buttons-wrap button.swiper-prev {
+        left: 10px;
+    }
+    .slider-content .swiper-buttons .swiper-buttons-wrap button.swiper-next {
+        right: 10px;
+    }
+}
+@media (min-width: 1600px) {
+    .slider-content .swiper-buttons .swiper-buttons-wrap button.swiper-prev {
+        left: 30px;
+    }
+    .slider-content .swiper-buttons .swiper-buttons-wrap button.swiper-next {
+        right: 30px;
+    }
+}
+
+/*====================================
+    slider-dot css
+====================================*/
+.slider-content .swiper-dots .swiper-pagination {
+    width: unset;
+    position: unset;
+    margin: -5px 0px 0px -5px;
+}
+.slider-content .swiper-dots .swiper-pagination span.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: var(--secondary-font-color);
+    margin: 5px 0px 0px 5px;
+    opacity: 0.15;
+    border: 1px solid var(--secondary-font-color);
+}
+.slider-content .swiper-dots .swiper-pagination span.swiper-pagination-bullet:hover,
+.slider-content .swiper-dots .swiper-pagination span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--primary-font-color);
+    opacity: 1;
+    border-color: var(--primary-font-color);
+}
+@media (min-width: 768px) {
+    .slider-content .swiper-dots {
+        left: 50%;
+        transform: translateX(-50%)
+    }
+}
+/************************************* home-slider css end *************************************/
+
+/************************************* service-area css start *************************************/
+/*====================================
+    service-area css
+====================================*/
+.service-area .service-content .service-icon i {
+    -webkit-transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+}
+.service-area .service-content:hover .service-icon i {
+    color: var(--extra-font-color);
+    background-color: var(--primary-font-color);
+    border-color: var(--primary-font-color);
+}
+/************************************* service-area css end *************************************/
+
+/************************************* category-slider css start *************************************/
+/*====================================
+    category-banner css
+====================================*/
+@media (min-width: 992px) {
+    .category-slider .category-banner a.banner-img img {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/*====================================
+    category-slider swiper css
+====================================*/
+.category-slider .cat-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 50%;
+}
+@media (min-width: 1200px) {
+    .category-slider .cat-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+
+/*====================================
+    category cat-block css
+====================================*/
+.category-slider .cat-slider .cat-block .cat-content a.cat-link {
+    -webkit-transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+}
+.category-slider .cat-slider .cat-block:hover .cat-content a.cat-link {
+    color: var(--extra-font-color);
+    background-color: var(--primary-font-color);
+    border-color: var(--primary-font-color);
+}
+/************************************* category-slider css end *************************************/
+
+/************************************* category-product css start *************************************/
+/*====================================
+    category-product swiper css
+====================================*/
+.category-product .collection-wrap #trend-product-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 50%;
+}
+@media (min-width: 768px) {
+    .category-product .collection-wrap #trend-product-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+@media (min-width: 1200px) {
+    .category-product .collection-wrap #trend-product-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 25%;
+    }
+}
+@media (min-width: 1400px) {
+    .category-product .collection-wrap #trend-product-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 20%;
+    }
+}
+/************************************* category-product css end *************************************/
+
+/************************************* deal-banner css start *************************************/
+/*====================================
+    deal-banner-content css
+====================================*/
+.deal-banner .deal-banner-content .deal-banner-img img {
+    object-fit: cover;
+    object-position: center;
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+}
+/************************************* deal-banner css end *************************************/
+
+/************************************* banner-area css start *************************************/
+/*====================================
+    banner-area css
+====================================*/
+.banner-area .banner-block a.banner-img img {
+    -webkit-filter: brightness(0.9);
+    filter: brightness(0.9);
+}
+@media (min-width: 992px) {
+    .banner-area .banner-block a.banner-img img {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+@media (min-width: 1600px) {
+    .banner-area .banner-block .banner-content .banner-sub-title {
+        margin-bottom: 14px;
+    }
+    .banner-area .banner-block .banner-content h2 {
+        font-size: 48px;
+    }
+}
+/************************************* banner-area css end *************************************/
+
+/************************************* collection-product-list css start *************************************/
+/*========================================
+    collection-product-list swiper css
+========================================*/
+.collection-product-list .collection-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+/************************************* collection-product-list css end *************************************/
+
+/************************************* blog-slider css start *************************************/
+/*====================================
+    blog-slider swiper css
+====================================*/
+.blog-wrap #blog-slider-full.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .blog-wrap #blog-slider-full.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .blog-wrap #blog-slider-full.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+@media (min-width: 1400px) {
+    .blog-wrap #blog-slider-full.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 25%;
+    }
+}
+/************************************* blog-slider css end *************************************/

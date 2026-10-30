@@ -1,0 +1,12 @@
+2026-10-14T12:48:51+00:00 INFO Automatic database update triggered.
+2026-10-14T12:48:51+00:00 INFO Scheduling database updates (from 11.1.2)...
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_1120_remove_abandoned_cart_recovery'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_1120_migrate_stock_notifications_alpha_constant'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_1120_delete_surface_cart_checkout_note'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_1120_cleanup_inherited_variation_images'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_11201_migrate_tax_lookup_order_items'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_11201_invalidate_analytics_reports_cache'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_11202_reset_refund_returning_customer_markers'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0] Scheduled 'wc_update_11203_normalize_stock_notification_emails'.
+2026-10-14T12:48:51+00:00 INFO   [11.2.0-1] Scheduled 'wc_update_1040_cleanup_legacy_ptk_patterns_fetching'.
+2026-10-14T12:48:51+00:00 INFO Database updates scheduled.

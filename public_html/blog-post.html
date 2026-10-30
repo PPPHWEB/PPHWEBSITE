@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="post-title">Blog - Praise Publishing House</title>
+    <link rel="icon" href="gall/icon.png">
+    <link rel="stylesheet" href="https://praisepublishinghouse.com/assets/css/plugin.css">
+    <link rel="stylesheet" href="https://praisepublishinghouse.com/assets/css/theme.css">
+    <link rel="stylesheet" href="https://praisepublishinghouse.com/assets/css/style.css">
+    
+    <style>
+    .post-hero { position:relative; height:400px; overflow:hidden; }
+    .post-hero img { width:100%; height:100%; object-fit:cover; }
+    .post-hero-overlay { position:absolute; inset:0; background:rgba(61,15,15,0.6); display:flex; align-items:flex-end; padding:40px; }
+    .post-hero-overlay h1 { color:#fff; font-size:2rem; font-weight:700; line-height:1.3; margin:0; }
+    .post-meta { display:flex; gap:16px; align-items:center; margin-bottom:24px; flex-wrap:wrap; }
+    .post-category { background:#fff3e0; color:#bf5500; font-size:13px; font-weight:600; padding:5px 14px; border-radius:20px; }
+    .post-date { color:#999; font-size:13px; }
+    .post-content { max-width:800px; margin:50px auto; padding:0 20px 60px; }
+    .post-content p { font-size:16px; line-height:1.9; color:#333; margin-bottom:18px; }
+    .post-content blockquote { border-left:5px solid #ff6633 !important; padding:16px 20px; background:#f9f6f2; margin:24px 0; border-radius:0 8px 8px 0; font-style:italic; color:#555; }
+    .post-content blockquote strong { color:#ff6633 !important; font-style:normal; display:block; margin-top:8px; font-size:14px; font-weight:700; }
+    .post-content blockquote em { color:#555 !important; }
+    blockquote { border-left:5px solid #ff6633 !important; }
+    blockquote strong { color:#ff6633 !important; }
+    .back-btn { display:inline-block; margin-bottom:30px; color:#ff6633; font-weight:600; text-decoration:none; font-size:14px; }
+    .back-btn:hover { text-decoration:underline; }
+    @media (max-width:768px) {
+        .post-hero { height:250px; }
+        .post-hero-overlay h1 { font-size:1.4rem; }
+        .post-hero-overlay { padding:20px; }
+    }
+    </style>
+<style>
+/* PPH Master Header Fix */
+.notification-marquee { display:none !important; }
+.swiper-prev-notification, .swiper-next-notification { display:none !important; }
+.notification-slider .swiper-slide:not(:first-child) { display:none !important; }
+@media (max-width: 1200px) {
+    .theme-logo img { width:130px !important; }
+    .header-icon-wrap.toggler-wrap { margin-right: 10px !important; }
+}
+@media (max-width: 768px) {
+    .theme-logo img { width:120px !important; margin-top:0 !important; }
+    .notification-bar { padding:4px 10px !important; }
+    .header-icon-wrap.toggler-wrap { margin-right: 12px !important; }
+    .header-block-icon { font-size:24px !important; }
+}
+@media (max-width: 480px) {
+    .theme-logo img { width:100px !important; }
+    .header-icon-wrap.toggler-wrap { margin-right: 10px !important; }
+}
+</style>
+</head>
+<body>
+<div id="pph-header"></div>
+<script>(function(){var s=document.createElement("script");s.src="https://praisepublishinghouse.com/header.js?t="+Math.floor(Date.now()/300000);document.head.appendChild(s);})();</script>
+<main>
+    <div class="post-hero">
+        <img id="post-image" src="" alt="Blog">
+        <div class="post-hero-overlay">
+            <h1 id="post-heading"></h1>
+        </div>
+    </div>
+    <div class="post-content">
+        <a href="blogs.html" class="back-btn">← Back to Blogs</a>
+        <div class="post-meta">
+            <span class="post-category" id="post-category"></span>
+            <span class="post-date" id="post-date"></span>
+        </div>
+        <div id="post-body"></div>
+    </div>
+</main>
+<div id="pph-footer"></div>
+<script>(function(){var s=document.createElement("script");s.src="https://praisepublishinghouse.com/footer.js?t="+Math.floor(Date.now()/300000);document.head.appendChild(s);})();</script>
+<script src="blogs-data.js"></script>
+<script>
+var params = new URLSearchParams(window.location.search);
+var slug = params.get('post');
+var blog = PPH_BLOGS.find(function(b) { return b.slug === slug; });
+if (blog) {
+    document.getElementById('post-title').textContent = blog.title + ' - Praise Publishing House';
+    document.getElementById('post-heading').textContent = blog.title;
+    document.getElementById('post-image').src = blog.image;
+    document.getElementById('post-image').alt = blog.title;
+    document.getElementById('post-category').textContent = blog.category;
+    document.getElementById('post-date').textContent = blog.date;
+    document.getElementById('post-body').innerHTML = blog.content;
+} else {
+    window.location.href = 'blogs.html';
+}
+</script>
+<!-- mobile-menu start -->
+        <div class="mobile-menu d-xl-none position-fixed top-0 bottom-0 body-bg z-index-5 invisible box-shadow" id="mobile-menu">
+            <div class="mobile-contents d-flex flex-column">
+                <div class="menu-close ptb-10 plr-15 beb">
+                    <button type="button" class="menu-close-btn d-block body-secondary-color icon-16 ms-auto" aria-label="Menu close"><i class="ri-close-large-line d-block lh-1"></i></button>
+                </div>
+                <div class="mobilemenu-content beb">
+                    <div class="main-wrap">
+                        <ul class="menu-ul"> 
+                            <li class="menu-li bst">
+                                <div class="menu-btn d-flex flex-row-reverse">
+                                    <button type="button" class="width-48 icon-16 ptb-10 bsl" data-bs-toggle="collapse" data-bs-target="#menu-blog" aria-expanded="false" aria-label="Menu accordion"> </button>
+                                    <span class="width-calc-48 ptb-10 plr-15"><a href="index.html" class="d-inline-block body-color">Home</a></span>
+                                </div> 
+                            </li> 
+                            <!--  -->
+                            <li class="menu-li bst">
+                                <div class="menu-btn d-flex flex-row-reverse">
+                                    <button type="button" class="width-48 icon-16 ptb-10 bsl" data-bs-toggle="collapse" data-bs-target="#menu-blog" aria-expanded="false" aria-label="Menu accordion"> </button>
+                                    <span class="width-calc-48 ptb-10 plr-15"><a href="about.html" class="d-inline-block body-color">About Us</a></span>
+                                </div> 
+                            </li> 
+                            <!--  -->
+                            <li class="menu-li bst">
+                            <div class="menu-btn d-flex flex-row-reverse">
+                                <button type="button" class="width-48 icon-16 ptb-10 bsl" data-bs-toggle="collapse" data-bs-target="#menu-store" aria-expanded="false" aria-label="Menu accordion"><i class="ri-add-line d-block lh-1"></i></button>
+                                <span class="width-calc-48 ptb-10 plr-15"><a href="Store.html" class="d-inline-block body-color">Store</a></span>
+                            </div>
+                            <div class="menu-dropdown collapse" id="menu-store">
+                                <ul class="menudrop-ul">
+                                    <li class="menudrop-li bst">
+                                        <span class="d-block ptb-10 psl-20 per-15"><a href="https://store.praisepublishinghouse.com/books/" class="d-inline-block body-color">📚 Books</a></span>
+                                    </li>
+                                    <li class="menudrop-li bst">
+                                        <span class="d-block ptb-10 psl-20 per-15"><a href="https://store.praisepublishinghouse.com/free-download/" class="d-inline-block body-color">🆓 Free Download</a></span>
+                                    </li>
+                                    <li class="menudrop-li bst">
+                                        <span class="d-block ptb-10 psl-20 per-15"><a href="https://store.praisepublishinghouse.com/pdf-download/" class="d-inline-block body-color">📄 Download PDF</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> 
+                            <!--  -->  
+                            <li class="menu-li bst">
+                                <div class="menu-btn d-flex flex-row-reverse">
+                                    <button type="button" class="width-48 icon-16 ptb-10 bsl" data-bs-toggle="collapse" data-bs-target="#menu-blog" aria-expanded="false" aria-label="Menu accordion"> </button>
+                                    <span class="width-calc-48 ptb-10 plr-15"><a href="blogs.html" class="d-inline-block body-color">Blogs</a></span>
+                                </div> 
+                            </li> 
+                            <!--  --> 
+                            <li class="menu-li bst">
+                                <div class="menu-btn d-flex flex-row-reverse">
+                                    <button type="button" class="width-48 icon-16 ptb-10 bsl" data-bs-toggle="collapse" data-bs-target="#menu-blog" aria-expanded="false" aria-label="Menu accordion"> </button>
+                                    <span class="width-calc-48 ptb-10 plr-15"><a href="faq.html" class="d-inline-block body-color">Faq's</a></span>
+                                </div> 
+                            </li> 
+                            <!--  --> 
+                            <li class="menu-li bst">
+                                <div class="menu-btn d-flex flex-row-reverse">
+                                    <button type="button" class="width-48 icon-16 ptb-10 bsl" data-bs-toggle="collapse" data-bs-target="#menu-blog" aria-expanded="false" aria-label="Menu accordion"> </button>
+                                    <span class="width-calc-48 ptb-10 plr-15"><a href="contact.html" class="d-inline-block body-color">Contact Us</a></span>
+                                </div> 
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile-menu end -->
+        
+        <!-- bg-screen start -->
+        <div class="bg-screen">
+            <div class="bg-back position-fixed top-0 end-0 bottom-0 start-0 bg-black z-index-4 opacity-0 invisible"></div>
+            <div class="bg-shop position-fixed top-0 end-0 bottom-0 start-0 bg-black z-index-4 opacity-0 invisible"></div>
+        </div>
+        <!-- bg-screen end -->
+<script src="assets/js/plugin.js"></script>
+<script src="assets/js/theme.js"></script>
+<!-- pph-mobile-toggle-fallback -->
+<script>
+(function(){
+  function q(s){return document.querySelector(s);}
+  function openMenu(){
+    var m=document.getElementById('mobile-menu');
+    if(m){m.classList.remove('invisible');m.classList.add('active','visible');}
+    var b=q('.bg-screen .bg-back');
+    if(b){b.classList.remove('opacity-0','invisible');b.classList.add('opacity-50','visible');}
+  }
+  function closeMenu(){
+    var m=document.getElementById('mobile-menu');
+    if(m){m.classList.add('invisible');m.classList.remove('active','visible');}
+    var b=q('.bg-screen .bg-back');
+    if(b){b.classList.add('opacity-0','invisible');b.classList.remove('opacity-50','visible');}
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target;
+    if(!t || !t.closest) return;
+    if(t.closest('a.toggler-btn')){ e.preventDefault(); openMenu(); }
+    else if(t.closest('.menu-close-btn') || t.closest('.bg-back')){ closeMenu(); }
+  }, false);
+})();
+</script>
+<!-- /pph-mobile-toggle-fallback -->
+</body>
+</html>

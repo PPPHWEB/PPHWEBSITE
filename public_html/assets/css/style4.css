@@ -1,0 +1,374 @@
+/************************************* newsletter-modal css start *************************************/
+/*====================================
+    newsletter-modal css
+====================================*/
+@media (min-width: 768px) {
+    .newsletter-modal .newsletter-info .newsletter-content .newsletter-form .news-wrap input {
+        border-radius: var(--border-radius) 0px 0px var(--border-radius);
+    }
+    .newsletter-modal .newsletter-info .newsletter-content .newsletter-form .news-wrap button {
+        border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+    }
+}
+/************************************* newsletter-modal css end *************************************/
+
+/************************************* home-slider css start *************************************/
+/*====================================
+    home-slider swiper css
+====================================*/
+.slider-content .home-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+
+/*====================================
+    slider-content css
+====================================*/
+@media (min-width: 1600px) {
+    .slider-content .home-slider span {
+        margin-bottom: 28px;
+    }
+    .slider-content .home-slider h2 {
+        font-size: 96px;
+    }
+    .slider-content .home-slider a {
+        margin-top: 36px;
+    }
+}
+
+/*====================================
+    slider-content transition css
+====================================*/
+.slider-content .home-slider.swiper .swiper-slide .slider-image span,
+.slider-content .home-slider.swiper .swiper-slide .slider-image h2,
+.slider-content .home-slider.swiper .swiper-slide .slider-image a {
+    opacity: 0;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image span,
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image h2,
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image a {
+    opacity: 1;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image span {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image h2 {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+}
+.slider-content .home-slider.swiper .swiper-slide.swiper-slide-active .slider-image a {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+    -webkit-animation-duration: 0.9s;
+    animation-duration: 0.9s;
+}
+
+/*====================================
+    slider-navigation css
+====================================*/
+.slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button {
+    color: var(--secondary-font-color);
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+.slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button.swiper-prev {
+    left: 5px;
+}
+.slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button.swiper-next {
+    right: 5px;
+}
+.slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button:hover {
+    color: var(--extra-font-color);
+}
+.slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--secondary-font-color);
+    z-index: -1;
+    opacity: 0.1;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+.slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button:hover::after {
+    opacity: 1;
+}
+@media (min-width: 1400px) {
+    .slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button.swiper-prev {
+        left: 10px;
+    }
+    .slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button.swiper-next {
+        right: 10px;
+    }
+}
+@media (min-width: 1600px) {
+    .slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button.swiper-prev {
+        left: 30px;
+    }
+    .slider-content .home-slider.swiper .swiper-buttons .swiper-buttons-wrap button.swiper-next {
+        right: 30px;
+    }
+}
+
+/*====================================
+    slider-dot css
+====================================*/
+.slider-content .home-slider.swiper .swiper-dots .swiper-pagination {
+    width: unset;
+    position: unset;
+    margin: -5px 0px 0px -5px;
+}
+.slider-content .home-slider.swiper .swiper-dots .swiper-pagination span.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: var(--secondary-font-color);
+    margin: 5px 0px 0px 5px;
+    opacity: 0.1;
+    border: 1px solid var(--secondary-font-color);
+}
+.slider-content .home-slider.swiper .swiper-dots .swiper-pagination span.swiper-pagination-bullet:hover,
+.slider-content .home-slider.swiper .swiper-dots .swiper-pagination span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+/************************************* home-slider css end *************************************/
+
+/************************************* category-slider css start *************************************/
+/*====================================
+    category-slider swiper css
+====================================*/
+.category-slider .cat-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 50%;
+}
+@media (min-width: 992px) {
+    .category-slider .cat-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+
+/*====================================
+    cat-banner css
+====================================*/
+.category-slider .cat-slider .cat-block .cat-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(0deg, var(--primary-font-color) 4.16%, transparent 50%);
+}
+.category-slider .cat-slider .cat-block .cat-banner .cat-banner-btn {
+    transform: translateY(5px);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: transform 0.3s ease-in-out,opacity 0.3s ease-in-out,visibility 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out,opacity 0.3s ease-in-out,visibility 0.3s ease-in-out;
+}
+.category-slider .cat-slider .cat-block:hover .cat-banner .cat-banner-btn {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+/************************************* category-slider css end *************************************/
+
+/************************************* service-area css start *************************************/
+/*====================================
+    service-area css
+====================================*/
+.service-area .service-content .service-icon {
+    -webkit-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+.service-area .service-content:hover .service-icon {
+    transform: translateY(-5px);
+}
+/************************************* service-area css end *************************************/
+
+/************************************* product-tab css start *************************************/
+/*====================================
+    product-tab css
+====================================*/
+.product-tab-area ul.nav-tabs {
+    margin-top: -6px;
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+}
+.product-tab-area ul.nav-tabs>* {
+    margin-top: 6px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+@media (min-width: 768px) {
+    .product-tab-area ul.nav-tabs {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .product-tab-area ul.nav-tabs>* {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/*====================================
+    product-tab title css
+====================================*/
+.product-tab-area ul.nav-tabs li a {
+    color: var(--heading-font-color);
+    position: relative;
+    z-index: 1;
+    -webkit-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+.product-tab-area ul.nav-tabs li a:hover {
+    color: var(--heading-font-color);    
+}
+.product-tab-area ul.nav-tabs li a.active {
+    color: var(--heading-font-color);
+}
+.product-tab-area ul.nav-tabs li a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: calc(50% - 4px);
+    z-index: -1;
+    background-color: var(--tertiary-font-color);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.3s ease-in-out,visibility 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out,visibility 0.3s ease-in-out;
+}
+.product-tab-area ul.nav-tabs li a.active::after,
+.product-tab-area ul.nav-tabs li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+/************************************* product-tab css end *************************************/
+
+/************************************* video-banner-deal css start *************************************/
+/*====================================
+    video-banner css
+====================================*/
+@media (min-width: 992px) {
+    .video-banner-deal .video-banner .video .video-img img {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+/************************************* video-banner-deal css end *************************************/
+
+/************************************* brand-logo css start *************************************/
+/*====================================
+    brand-logo swiper css
+====================================*/
+.brand-logo .brand-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .brand-logo .brand-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .brand-logo .brand-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+
+/*====================================
+    brand-content css
+====================================*/
+.brand-logo .brand-slider .brand-content .brand-review .brand-review-ratting {
+    margin-top: -9px;
+    margin-left: -2.5px;
+    margin-right: -2.5px;
+}
+.brand-logo .brand-slider .brand-content .brand-review .brand-review-ratting >* {
+    margin-top: 9px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.brand-logo .brand-slider .brand-content .brand-review .brand-review-ratting .brand-review-average span.brand-review-count::before {
+    content: "(";
+}
+.brand-logo .brand-slider .brand-content .brand-review .brand-review-ratting .brand-review-average span.brand-review-count::after {
+    content: ")";
+}
+/************************************* brand-logo css end *************************************/
+
+/************************************* testimonial css start *************************************/
+/*====================================
+    testimonial slider-swiper css
+====================================*/
+.testimonial .testi-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .testimonial .testi-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .testimonial .testi-slider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+/************************************* testimonial css end *************************************/
+
+/************************************* big-text css start *************************************/
+/*====================================
+    big-text css
+====================================*/
+.big-text .big-text-title h2 {
+    font-size: 32px;
+    opacity: 0.05;
+    -webkit-text-fill-color: var(--extra-font-color);
+    -webkit-background-clip: text;
+    text-shadow: 2px 0 0 var(--heading-font-color), 0 2px 0 var(--heading-font-color), -2px 0 0 var(--heading-font-color), 0 -2px 0 var(--heading-font-color);
+}
+@media (min-width: 400px) {
+    .big-text .big-text-title h2 {
+        font-size: 32px;
+    }
+}
+@media (min-width: 576px) {
+    .big-text .big-text-title h2 {
+        font-size: 48px;
+    }
+}
+@media (min-width: 768px) {
+    .big-text .big-text-title h2 {
+        font-size: 64px;
+    }
+}
+@media (min-width: 992px) {
+    .big-text .big-text-title h2 {
+        font-size: 80px;
+    }
+}
+@media (min-width: 1200px) {
+    .big-text .big-text-title h2 {
+        font-size: 88px;
+    }
+}
+@media (min-width: 1400px) {
+    .big-text .big-text-title h2 {
+        font-size: 104px;
+    }
+}
+@media (min-width: 1600px) {
+    .big-text .big-text-title h2 {
+        font-size: 144px;
+    }
+}
+/************************************* big-text css end *************************************/
