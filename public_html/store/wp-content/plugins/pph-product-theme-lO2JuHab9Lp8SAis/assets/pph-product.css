@@ -1,0 +1,2397 @@
+/* PPH Product Page Theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Urbanist:wght@400;500;600;700&display=swap');
+
+body.single-product{ background:#eae6df !important; }
+
+/* Full width */
+body.single-product #content .ast-container,
+body.single-product .site-content .ast-container,
+body.single-product #primary,
+body.single-product #main{
+  max-width:100% !important; width:100% !important;
+  padding-left:0 !important; padding-right:0 !important; margin:0 auto !important;
+}
+
+.pph-pp{
+  --maroon:#3f1717; --maroon-dark:#2a0f0f; --gold:#ffcc33; --orange:#e8622c; --orange-dark:#cf4f1d;
+  --ink:#2c2420; --muted:#8a817a; --line:#e9e2da; --cream:#f4f0e7; --soft:#faf7f3;
+  font-family:'Urbanist',-apple-system,'Segoe UI',Arial,sans-serif;
+  max-width:1360px; margin:26px auto 60px; padding:0 24px; color:var(--ink);
+}
+.pph-pp *{ box-sizing:border-box; }
+
+/* cream card */
+.pph-pp-card{
+  background:var(--cream); border:1px solid #e7e1d6; border-radius:28px; overflow:hidden;
+  box-shadow:0 20px 60px rgba(60,40,25,.10);
+}
+
+/* ---------- HERO (cream band) ---------- */
+.pph-pp-hero{
+  display:grid; grid-template-columns:0.92fr 1.12fr; gap:20px;
+  padding:50px 48px 26px; position:relative; z-index:2; overflow:visible;
+}
+.pph-pp-cover{ display:flex; align-items:center; justify-content:center; overflow:visible; }
+/* flat rectangular book, overhang into white panel */
+.pph-book{ position:relative; z-index:3; width:78%; margin-bottom:-64px; }
+.pph-book img, .pph-book .pph-pp-cover-img{
+  display:block; width:100% !important; height:auto !important; border-radius:8px;
+  box-shadow: 0 28px 22px rgba(0,0,0,.18), 0 48px 60px -18px rgba(0,0,0,.30), 18px 20px 30px rgba(0,0,0,.12);
+}
+
+.pph-pp-info{ display:flex; flex-direction:column; justify-content:center; padding:34px 6px 44px 26px; }
+.pph-pp-cat{ font-size:12px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:#1a1a1a; }
+.pph-pp-cat a{ color:#1a1a1a; text-decoration:none; }
+.pph-pp-title{
+  font-family:'Playfair Display',Georgia,serif !important; font-weight:700 !important;
+  font-size:44px !important; line-height:1.06 !important; color:#141414 !important; margin:10px 0 6px !important;
+}
+.pph-pp-author{ font-weight:700; color:#141414; font-size:17px; margin:0 0 16px; }
+.pph-pp-short{ color:#6f665e; font-style:italic; font-size:16px; line-height:1.6; margin-bottom:22px; max-width:540px; }
+.pph-pp-short p{ margin:0 0 8px; }
+.pph-pp-fmtlabel{ font-size:12px; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); margin-top:26px; margin-bottom:10px; }
+
+/* buy box */
+.pph-pp-buybox{ border:1px solid var(--line); border-radius:16px; padding:26px 26px 28px; background:#fff; max-width:540px; box-shadow:0 40px 50px -22px rgba(18,10,6,.46), 0 16px 24px -14px rgba(18,10,6,.30); }
+.pph-pp-price{ font-family:'Playfair Display',Georgia,serif; font-size:30px; font-weight:700; color:#141414; margin-bottom:14px; }
+.pph-pp-price del{ color:var(--muted); font-size:18px; opacity:.75; margin-left:8px; }
+.pph-pp-price ins{ text-decoration:none; }
+
+/* variations */
+.pph-pp .variations{ width:100%; border:0; margin-bottom:12px; }
+.pph-pp .variations td, .pph-pp .variations th{ border:0; padding:6px 0; display:block; text-align:left; }
+.pph-pp .variations .label label{ font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--muted); }
+.pph-pp .variations select{
+  width:100%; padding:12px 14px; border:1.5px solid var(--line); border-radius:12px; background:#fff; font-weight:600; color:var(--ink);
+}
+.pph-pp ul.variable-items-wrapper, .pph-pp .variable-items-wrapper{
+  display:flex !important; flex-wrap:wrap !important; grid-template-columns:none !important;
+  gap:8px !important; padding:0 !important; margin:0 0 12px !important; list-style:none !important; float:none !important;
+}
+.pph-pp ul.variable-items-wrapper li.variable-item{
+  border:1.5px solid var(--line) !important; background:#fff !important; color:var(--ink) !important;
+  border-radius:12px !important; padding:13px 20px !important; margin:0 !important; box-shadow:none !important; float:none !important; font-weight:600 !important;
+  flex:1 1 auto !important; min-width:104px !important; text-align:center !important; white-space:nowrap !important; font-size:15px !important;
+}
+.pph-pp .variable-items-wrapper .variable-item-span{ white-space:nowrap !important; display:inline-block !important; }
+.pph-pp ul.variable-items-wrapper li.variable-item.selected,
+.pph-pp ul.variable-items-wrapper li.variable-item:hover{
+  border-color:var(--maroon) !important; background:var(--maroon) !important; color:#fff !important;
+}
+.pph-pp .reset_variations{ color:var(--muted); font-size:13px; margin-left:8px; }
+
+/* qty + add to cart */
+.pph-pp .quantity .qty{ border:1.5px solid var(--line); border-radius:12px; padding:12px; width:70px; }
+.pph-pp .single_add_to_cart_button, .pph-pp button.button, .pph-pp a.button{
+  background:var(--orange) !important; color:#fff !important; border:none !important; border-radius:12px !important;
+  padding:15px 30px !important; font-family:'Urbanist',sans-serif !important; font-weight:700 !important; font-size:15px !important;
+  text-transform:none !important; box-shadow:0 8px 20px rgba(63,23,23,.18) !important; cursor:pointer;
+}
+.pph-pp .single_add_to_cart_button:hover, .pph-pp button.button:hover{ background:var(--orange-dark) !important; }
+.pph-pp .woocommerce-variation-price{ margin-bottom:12px; }
+
+/* ---------- WHITE PANEL ---------- */
+.pph-pp-panel{
+  position:relative; z-index:1; background:#fff;
+  padding:116px 48px 44px; box-shadow:inset 0 22px 30px -22px rgba(0,0,0,.08);
+}
+.pph-pp-panel-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:56px; }
+
+.pph-pp-sec{
+  font-family:'Playfair Display',Georgia,serif !important; color:#141414 !important;
+  font-size:22px !important; margin:0 0 14px !important;
+}
+.pph-pp-desc{ color:#5c534c; font-size:16px; line-height:1.75; }
+.pph-pp-desc p{ margin:0 0 14px; }
+
+/* attributes (Editors / Language / Paperback) */
+.pph-pp-attr{ margin-bottom:24px; }
+.pph-pp-attr-name{ font-family:'Playfair Display',Georgia,serif; color:#141414; font-size:19px; margin:0 0 6px; }
+.pph-pp-attr-val{ color:#6f665e; font-size:15px; line-height:1.6; margin:0; }
+
+/* ---------- Reviews ---------- */
+.pph-pp-reviews{ margin-top:34px; padding-top:30px; border-top:1px solid var(--line); }
+.pph-pp-reviews #comment, .pph-pp-reviews textarea{
+  width:100% !important; min-height:130px !important; padding:14px 16px !important;
+  border:1.5px solid var(--line) !important; border-radius:12px !important; background:#fff !important;
+  font-family:'Urbanist',sans-serif !important; font-size:15px !important; color:var(--ink) !important; resize:vertical;
+}
+.pph-pp-reviews #comment:focus, .pph-pp-reviews textarea:focus{ outline:none; border-color:var(--maroon) !important; }
+.pph-pp-reviews #comment::placeholder, .pph-pp-reviews textarea::placeholder{ color:#b8afa6 !important; font-weight:400; }
+.pph-pp-reviews input[type=text], .pph-pp-reviews input[type=email]{
+  border:1.5px solid var(--line) !important; border-radius:12px !important; padding:12px 14px !important; background:#fff !important;
+}
+.pph-pp-reviews label{ color:var(--muted); font-weight:600; }
+.pph-pp-reviews #respond .submit,
+.pph-pp-reviews #respond input[type=submit],
+.pph-pp-reviews .comment-form .submit,
+.pph-pp-reviews input#submit{
+  background:var(--orange) !important; color:#fff !important; border:none !important; border-radius:12px !important;
+  padding:14px 30px !important; font-family:'Urbanist',sans-serif !important; font-weight:700 !important; font-size:15px !important;
+  text-transform:none !important; cursor:pointer; box-shadow:0 8px 20px rgba(232,98,44,.28) !important;
+}
+.pph-pp-reviews #respond .submit:hover,
+.pph-pp-reviews input#submit:hover{ background:var(--orange-dark) !important; }
+.pph-pp-reviews .star-rating, .pph-pp-reviews p.stars a{ color:var(--gold); }
+
+/* ---------- More books ---------- */
+.pph-pp-related{ margin-top:34px; padding-top:30px; border-top:1px solid var(--line); }
+.pph-pp-books{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+.pph-pp-book{ text-decoration:none; color:inherit; display:block; text-align:center; }
+.pph-pp-book-cover{ margin-bottom:16px; }
+.pph-pp-book-cover img{
+  width:74% !important; height:auto !important; object-fit:contain !important; border-radius:6px;
+  box-shadow:0 16px 30px -14px rgba(30,18,12,.40); transition:transform .3s ease;
+}
+.pph-pp-book:hover .pph-pp-book-cover img{ transform:translateY(-5px); }
+.pph-pp-book-title{ font-family:'Playfair Display',Georgia,serif; font-weight:700; color:#141414; font-size:15px; line-height:1.25; margin-bottom:4px; }
+.pph-pp-book-price{ color:#141414; font-weight:700; font-size:14px; }
+
+@media (max-width:900px){
+  .pph-pp-hero{ grid-template-columns:1fr; gap:10px; padding:40px 14px 20px; }
+  .pph-pp-buybox{ padding:20px 16px 22px !important; max-width:none !important; }
+  .pph-book{ width:60%; margin-bottom:-10px; }
+  .pph-pp-info{ padding:30px 8px 20px; }
+  .pph-pp ul.variable-items-wrapper li.variable-item{ min-width:98px !important; flex:1 1 auto !important; padding:12px 16px !important; font-size:14px !important; white-space:nowrap !important; }
+  .pph-pp .variable-items-wrapper li.variable-item, .pph-pp .variable-items-wrapper li.variable-item *{ white-space:nowrap !important; overflow:visible !important; }
+  .pph-pp-panel{ padding:80px 24px 34px; }
+  .pph-pp-panel-grid{ grid-template-columns:1fr; gap:28px; }
+  .pph-pp-title{ font-size:32px !important; }
+  .pph-pp-books{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* Spacing */
+.pph-pp form.cart{ margin-top:16px !important; }
+.pph-pp .quantity{ margin-bottom:14px; }
+.pph-pp .single_add_to_cart_button{ margin-top:6px !important; }
+
+
+/* Disabled add-to-cart */
+.pph-pp .single_add_to_cart_button.disabled,
+.pph-pp .single_add_to_cart_button[disabled]{
+  background:#c9bfb4 !important; color:#fff !important; box-shadow:none !important;
+  cursor:not-allowed !important; opacity:1 !important;
+}
+
+/* product page notices */
+.pph-pp-notices{ margin:0 0 18px; }
+.pph-pp .woocommerce-message,
+.pph-pp-notices .woocommerce-message,
+.pph-pp-notices .woocommerce-info,
+.pph-pp-notices .woocommerce-error{
+  border-radius:14px !important; border:1px solid #e7e1d6 !important;
+  border-top:3px solid #3f1717 !important; background:#fff !important; padding:16px 18px !important;
+  font-family:'Urbanist',sans-serif !important; color:#2c2420 !important;
+}
+.pph-pp-notices .button{
+  background:#e8622c !important; color:#fff !important; border-radius:10px !important;
+}
+.pph-pp-notices .button:hover{ background:#cf4f1d !important; }
+
+/* Cart & checkout accents */
+/* buttons */
+body.woocommerce-cart .button, body.woocommerce-cart button.button, body.woocommerce-cart a.button, body.woocommerce-cart input.button,
+body.woocommerce-checkout .button, body.woocommerce-checkout button.button, body.woocommerce-checkout a.button, body.woocommerce-checkout input.button,
+body.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+body.woocommerce-checkout #place_order{
+  background-color:#e8622c !important; border-color:#e8622c !important; color:#fff !important;
+}
+body.woocommerce-cart .button:hover, body.woocommerce-checkout .button:hover,
+body.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover,
+body.woocommerce-checkout #place_order:hover{
+  background-color:#cf4f1d !important; border-color:#cf4f1d !important;
+}
+/* links blue -> orange */
+body.woocommerce-cart a:not(.button), body.woocommerce-checkout a:not(.button){ color:#e8622c; }
+body.woocommerce-cart a:not(.button):hover, body.woocommerce-checkout a:not(.button):hover{ color:#cf4f1d; }
+/* input focus + accent borders blue -> orange */
+body.woocommerce-cart .input-text:focus, body.woocommerce-checkout .input-text:focus,
+body.woocommerce-cart textarea:focus, body.woocommerce-checkout textarea:focus,
+body.woocommerce-cart select:focus, body.woocommerce-checkout select:focus,
+body.woocommerce-checkout .select2-container--focus .select2-selection{
+  border-color:#e8622c !important; box-shadow:0 0 0 1px #e8622c !important; outline:none !important;
+}
+/* Notice accent */
+body.woocommerce-cart .woocommerce-info, body.woocommerce-checkout .woocommerce-info,
+body.woocommerce-cart .woocommerce-message, body.woocommerce-checkout .woocommerce-message{
+  border-top-color:#e8622c !important;
+}
+body.woocommerce-cart .woocommerce-info::before, body.woocommerce-checkout .woocommerce-info::before,
+body.woocommerce-cart .woocommerce-message::before, body.woocommerce-checkout .woocommerce-message::before{
+  color:#e8622c !important;
+}
+
+/* Format tabs on one line */
+.pph-pp-buybox form.cart, .pph-pp-buybox form.cart *{
+  white-space:nowrap !important; word-break:normal !important; overflow-wrap:normal !important; hyphens:none !important;
+}
+.pph-pp-buybox form.cart ul li, .pph-pp-buybox [class*="variable-item"]{ text-align:center !important; }
+
+
+
+/* 3D book mockup */
+.pph-pp-cover{ position:relative; perspective:1400px; perspective-origin:52% 50%; overflow:visible; }
+/* dark shadow behind the book (backside) */
+.pph-pp-cover::after{
+  content:""; position:absolute; z-index:0; left:18%; right:18%; top:15%; bottom:0;
+  background:rgba(18,10,6,.55); filter:blur(30px);
+  transform:translate(26px,34px); border-radius:24px; pointer-events:none;
+}
+.pph-book{ position:relative; z-index:2; width:62%; transform:rotateY(-24deg); transform-style:preserve-3d; transition:transform .5s ease; }
+.pph-book:hover{ transform:rotateY(-16deg); }
+.pph-book .pph-pp-cover-img, .pph-book img{
+  position:relative; z-index:2; border-radius:2px 4px 4px 2px !important;
+  box-shadow:0 10px 18px -8px rgba(0,0,0,.4) !important;
+}
+/* thick WHITE PAGE STACK on RIGHT (real 3D face) */
+.pph-book::after{
+  content:""; position:absolute; top:0; bottom:0; right:0; width:34px; z-index:1;
+  background:repeating-linear-gradient(to bottom,#cbbb98 0 1px,#f8f3e9 1px 3.2px), linear-gradient(to right,#e6ddca,#fefcf6 40%,#d2c7ad);
+  transform-origin:right center; transform:rotateY(-90deg);
+}
+/* dark spine shading on LEFT edge */
+.pph-book::before{
+  content:""; position:absolute; left:0; top:0; bottom:0; width:16%; z-index:3;
+  background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 60%,rgba(255,255,255,.12) 95%);
+  border-radius:2px 0 0 2px; pointer-events:none;
+}
+@media (max-width:900px){
+  .pph-book{ width:58%; transform:rotateY(-22deg); }
+  .pph-book::after{ width:26px; }
+  .pph-pp-cover::after{ transform:translate(18px,24px); filter:blur(22px); }
+}
+
+/* Cart & checkout thumbnails */
+body.woocommerce-cart td.product-thumbnail img,
+body.woocommerce-checkout td.product-thumbnail img,
+body.woocommerce-cart .cart_item img,
+body.woocommerce-checkout .cart_item img,
+body.woocommerce-cart .product-thumbnail img,
+body.woocommerce-checkout .product-thumbnail img{
+  width:66px !important; height:auto !important; max-width:66px !important;
+  object-fit:contain !important; border-radius:4px;
+}
+
+/* Added-to-cart button: orange */
+.pph-pp a.button.wc-forward,
+.pph-pp a.added_to_cart,
+.pph-pp .woocommerce-message a.button,
+.pph-pp-notices .woocommerce-message a.button,
+.pph-pp-notices a.button{
+  background:var(--orange) !important; border-color:var(--orange) !important; color:#fff !important;
+}
+.pph-pp a.button.wc-forward:hover, .pph-pp a.button.wc-forward:active, .pph-pp a.button.wc-forward:focus,
+.pph-pp a.added_to_cart:hover, .pph-pp a.added_to_cart:active,
+.pph-pp .woocommerce-message a.button:hover,
+.pph-pp-notices a.button:hover, .pph-pp-notices a.button:active{
+  background:var(--orange-dark) !important; border-color:var(--orange-dark) !important; color:#fff !important;
+}
+
+
+/* =========================================================================
+   ============================  PPH 5.0  ADDITIONS  =======================
+   Format cards, retailer buttons, tabs, details list, sample pages,
+   related sidebar, lightbox. Everything follows the same design language:
+   Playfair Display + Urbanist, cream/maroon/orange.
+   ========================================================================= */
+
+
+/* --------------------------------- title + badge ------------------------ */
+
+.pph-title-row{ display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+.pph-title-row .pph-pp-title{ flex:1 1 auto; margin-bottom:6px; }
+
+.pph-badge{
+  flex:0 0 auto; margin-top:10px;
+  font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.5px; text-transform:uppercase;
+  color:#3f1717; background:#e6ddca;
+  border:1px solid #d2c7ad; border-radius:999px;
+  padding:6px 14px; white-space:nowrap;
+}
+
+.pph-pp-subtitle{
+  font-family:'Urbanist',sans-serif; font-size:13px; font-weight:700;
+  letter-spacing:1.4px; text-transform:uppercase;
+  color:#8a817a; margin:0 0 12px;
+}
+
+
+/* ------------------------------- thumbnail rail ------------------------- */
+
+.pph-pp-hero.has-rail{ grid-template-columns:96px 1fr 1fr; }
+
+.pph-rail{
+  display:flex; flex-direction:column; gap:10px;
+  padding:34px 0 44px 22px; align-self:center;
+}
+
+.pph-thumb{
+  appearance:none; cursor:pointer; padding:0;
+  background:#fff; border:1.5px solid var(--line,#e7e1d6); border-radius:8px;
+  overflow:hidden; line-height:0;
+  transition:border-color .16s ease, transform .16s ease;
+}
+.pph-thumb img{ width:100%; height:auto; display:block; }
+.pph-thumb:hover{ transform:translateY(-2px); }
+.pph-thumb.is-on{ border-color:var(--orange,#e8622c); border-width:2px; }
+
+.pph-rail-more{
+  display:block; text-align:center; text-decoration:none;
+  font-family:'Urbanist',sans-serif; font-size:10px; font-weight:700;
+  letter-spacing:.7px; text-transform:uppercase;
+  color:#6f665e; background:#fff;
+  border:1.5px solid var(--line,#e7e1d6); border-radius:8px;
+  padding:10px 4px; margin-top:2px;
+}
+.pph-rail-more:hover{ color:var(--orange,#e8622c); border-color:var(--orange,#e8622c); }
+
+
+/* ------------------------------- format cards --------------------------- */
+
+.pph-fmts{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+  max-width:560px; margin:0 0 22px;
+}
+
+.pph-fmt{
+  position:relative; cursor:pointer; text-align:center;
+  background:#fff; border:1.5px solid var(--line,#e7e1d6); border-radius:14px;
+  padding:16px 8px 14px;
+  display:flex; flex-direction:column; align-items:center; gap:3px;
+  transition:border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+.pph-fmt:hover{ transform:translateY(-2px); box-shadow:0 10px 18px -10px rgba(18,10,6,.28); }
+.pph-fmt:focus-visible{ outline:2px solid var(--orange,#e8622c); outline-offset:2px; }
+
+.pph-fmt.is-on{
+  border-color:var(--orange,#e8622c); border-width:2px;
+  background:#fffaf7;
+  box-shadow:0 14px 22px -12px rgba(232,98,44,.34);
+}
+
+.pph-fmt-ic{ color:#3f1717; margin-bottom:2px; }
+.pph-fmt.is-on .pph-fmt-ic{ color:var(--orange,#e8622c); }
+.pph-ic{ width:26px; height:26px; display:block; }
+
+.pph-fmt-label{
+  font-family:'Urbanist',sans-serif; font-size:14px; font-weight:700;
+  color:#141414; line-height:1.2;
+}
+.pph-fmt-sub{
+  font-family:'Urbanist',sans-serif; font-size:10.5px; font-weight:500;
+  color:#8a817a; line-height:1.3;
+}
+.pph-fmt-price{
+  font-family:'Playfair Display',Georgia,serif; font-size:16px; font-weight:700;
+  color:#141414; margin-top:5px;
+}
+
+.pph-fmt-tick{
+  position:absolute; top:7px; right:8px;
+  width:18px; height:18px; border-radius:50%;
+  background:var(--orange,#e8622c); color:#fff;
+  font-size:11px; font-weight:700; line-height:18px;
+  opacity:0; transform:scale(.6); transition:opacity .16s ease, transform .16s ease;
+}
+.pph-fmt.is-on .pph-fmt-tick{ opacity:1; transform:scale(1); }
+
+
+/* ------------------------------ retailer buttons ------------------------ */
+
+.pph-buybox--rt{ padding-top:22px; }
+
+.pph-rt-label{
+  font-family:'Urbanist',sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.7px; text-transform:uppercase;
+  color:#8a817a; margin:0 0 12px;
+}
+
+.pph-rt-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.pph-rt-grid--sm{ grid-template-columns:repeat(3,1fr); }
+
+.pph-rt{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  text-decoration:none;
+  background:#fff; border:1.5px solid var(--line,#e7e1d6); border-radius:12px;
+  padding:13px 15px;
+  transition:border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+.pph-rt:hover{
+  border-color:var(--orange,#e8622c); transform:translateY(-2px);
+  box-shadow:0 10px 18px -10px rgba(18,10,6,.26);
+}
+
+.pph-rt-name{
+  font-family:'Urbanist',sans-serif; font-size:13.5px; font-weight:700;
+  color:#141414; line-height:1.2;
+}
+.pph-rt .pph-ic{ width:15px; height:15px; color:#b8afa6; flex:0 0 auto; }
+.pph-rt:hover .pph-ic{ color:var(--orange,#e8622c); }
+
+.pph-rt-note{
+  font-family:'Urbanist',sans-serif; font-size:12px; color:#8a817a;
+  margin-top:14px; padding-top:13px; border-top:1px solid var(--line,#e7e1d6);
+}
+
+.pph-instant{
+  display:flex; align-items:center; gap:7px;
+  font-family:'Urbanist',sans-serif; font-size:12px; font-weight:600;
+  color:#256029; background:#f2f9f3;
+  border:1px solid #d8ead9; border-radius:10px;
+  padding:10px 13px; margin-top:14px;
+}
+.pph-instant .pph-ic{ width:14px; height:14px; flex:0 0 auto; }
+
+.pph-dig-rt{ max-width:540px; margin-top:20px; }
+.pph-dig-rt .pph-rt{ padding:11px 13px; justify-content:center; }
+.pph-dig-rt .pph-rt-name{ font-size:12.5px; }
+
+
+/* ----------------------------------- tabs ------------------------------- */
+
+.pph-tabs{
+  display:flex; gap:4px; flex-wrap:wrap;
+  border-bottom:1.5px solid var(--line,#e7e1d6); margin-bottom:28px;
+}
+
+.pph-tab{
+  appearance:none; background:none; border:0; cursor:pointer;
+  font-family:'Urbanist',sans-serif; font-size:12.5px; font-weight:700;
+  letter-spacing:.6px; text-transform:uppercase;
+  color:#8a817a; padding:13px 18px;
+  border-bottom:3px solid transparent; margin-bottom:-1.5px;
+  transition:color .16s ease, border-color .16s ease;
+}
+.pph-tab:hover{ color:#3f1717; }
+.pph-tab.is-on{ color:#3f1717; border-bottom-color:var(--orange,#e8622c); }
+
+.pph-panel[hidden]{ display:none; }
+
+
+/* ------------------------------- details list --------------------------- */
+
+.pph-dl{ display:grid; grid-template-columns:repeat(2,1fr); gap:0 44px; }
+
+.pph-dl-row{
+  display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+  padding:13px 0; border-bottom:1px solid var(--line,#e7e1d6);
+}
+
+.pph-dl-k{
+  font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.5px; text-transform:uppercase;
+  color:#8a817a; flex:0 0 auto;
+}
+.pph-dl-v{
+  font-family:'Urbanist',sans-serif; font-size:14.5px; font-weight:600;
+  color:#141414; text-align:right;
+}
+
+
+/* ------------------------------- sample pages --------------------------- */
+
+.pph-samples{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+
+.pph-sample{
+  display:block; line-height:0; border-radius:12px; overflow:hidden;
+  border:1.5px solid var(--line,#e7e1d6); background:#fff;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.pph-sample img{ width:100%; height:auto; display:block; }
+.pph-sample:hover{
+  transform:translateY(-3px); border-color:var(--orange,#e8622c);
+  box-shadow:0 16px 26px -16px rgba(18,10,6,.34);
+}
+
+
+/* ---------------------------- related sidebar --------------------------- */
+
+.pph-pp-panel-grid.no-side{ grid-template-columns:1fr; }
+.pph-main-col{ min-width:0; }
+
+.pph-side{ align-self:start; }
+.pph-side .pph-pp-sec{ font-size:20px !important; margin-bottom:18px !important; }
+
+.pph-side-book{
+  display:grid; grid-template-columns:66px 1fr; gap:14px;
+  text-decoration:none; color:inherit;
+  padding:14px 0; border-bottom:1px solid var(--line,#e7e1d6);
+}
+.pph-side-book:last-of-type{ border-bottom:0; }
+
+.pph-side-cover{ line-height:0; }
+.pph-side-cover img{
+  width:100%; height:auto; display:block; border-radius:5px;
+  box-shadow:0 8px 14px -8px rgba(18,10,6,.42);
+  transition:transform .18s ease;
+}
+.pph-side-book:hover .pph-side-cover img{ transform:translateY(-3px); }
+
+.pph-side-meta{ display:flex; flex-direction:column; justify-content:center; gap:4px; min-width:0; }
+.pph-side-title{
+  font-family:'Playfair Display',Georgia,serif; font-weight:700;
+  color:#141414; font-size:14.5px; line-height:1.28;
+}
+.pph-side-price{ font-family:'Urbanist',sans-serif; font-weight:700; font-size:13.5px; color:#141414; }
+.pph-side-price del{ color:#b8afa6; font-weight:500; margin-left:5px; }
+.pph-side-price ins{ text-decoration:none; }
+
+.pph-side-rate{ font-family:'Urbanist',sans-serif; font-size:12px; color:#6f665e; font-weight:600; }
+.pph-stars{ color:var(--gold,#ffcc33); }
+.pph-side-count{ color:#b8afa6; font-weight:500; }
+
+.pph-side-all{
+  display:block; text-align:center; text-decoration:none;
+  font-family:'Urbanist',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.6px; text-transform:uppercase;
+  color:#3f1717; border:1.5px solid #d2c7ad; border-radius:11px;
+  padding:13px 10px; margin-top:18px;
+  transition:background .16s ease, color .16s ease, border-color .16s ease;
+}
+.pph-side-all:hover{
+  background:var(--orange,#e8622c); color:#fff !important;
+  border-color:var(--orange,#e8622c);
+}
+
+
+/* --------------------------------- lightbox ----------------------------- */
+
+.pph-lb{
+  position:fixed; inset:0; z-index:99999;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(20,12,8,.9); padding:36px; cursor:zoom-out;
+}
+.pph-lb[hidden]{ display:none; }
+.pph-lb img{
+  max-width:94%; max-height:94%; width:auto; height:auto;
+  border-radius:8px; box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+}
+.pph-lb-x{
+  position:absolute; top:20px; right:26px;
+  appearance:none; background:none; border:0; cursor:pointer;
+  color:#fff; font-size:38px; line-height:1; padding:6px 12px;
+}
+
+
+/* -------------------------------- responsive ---------------------------- */
+
+@media (max-width:1100px){
+  .pph-fmts{ grid-template-columns:repeat(2,1fr); }
+  .pph-dl{ grid-template-columns:1fr; }
+}
+
+@media (max-width:900px){
+  .pph-pp-hero, .pph-pp-hero.has-rail{ grid-template-columns:1fr !important; }
+
+  /* Rail becomes a horizontal strip under the cover */
+  .pph-rail{
+    flex-direction:row; overflow-x:auto; gap:9px;
+    padding:0 18px 4px; order:2;
+  }
+  .pph-thumb{ flex:0 0 62px; }
+  .pph-rail-more{ flex:0 0 auto; align-self:center; padding:10px 14px; margin-top:0; }
+
+  .pph-pp-cover{ order:1; }
+  .pph-pp-info{ order:3; }
+
+  .pph-fmts{ max-width:none; }
+  .pph-rt-grid, .pph-rt-grid--sm{ grid-template-columns:1fr; }
+  .pph-samples{ grid-template-columns:1fr; }
+
+  .pph-tabs{ gap:0; }
+  .pph-tab{ padding:12px 13px; font-size:11.5px; }
+
+  .pph-side{ margin-top:34px; padding-top:28px; border-top:1px solid var(--line,#e7e1d6); }
+}
+
+@media (max-width:560px){
+  .pph-fmts{ grid-template-columns:repeat(2,1fr); gap:9px; }
+  .pph-fmt{ padding:13px 6px 11px; }
+  .pph-fmt-price{ font-size:15px; }
+  .pph-badge{ margin-top:0; }
+  .pph-dl-row{ flex-direction:column; gap:3px; }
+  .pph-dl-v{ text-align:left; }
+}
+
+
+/* =====================================================================
+   5.2  RETAILER STRIP WITH BRAND LOGOS
+   Always visible under the format cards. Selecting a format highlights
+   the retailers that belong to it instead of hiding the others.
+   ===================================================================== */
+
+.pph-rt-strip { margin-top: 26px; }
+
+.pph-rt-strip .pph-rt-label {
+	font-family: 'Urbanist', sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	color: #cf4f1d;
+	margin-bottom: 12px;
+}
+
+.pph-rt-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.pph-rt-row .pph-rt {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	min-width: 106px;
+	padding: 12px 16px 10px;
+	background: #fff;
+	border: 1px solid #e7e1d6;
+	border-radius: 12px;
+	text-decoration: none;
+	box-shadow: 0 1px 2px rgba(20, 12, 8, .05);
+	transition: border-color .18s, box-shadow .18s, transform .18s, opacity .18s;
+}
+
+.pph-rt-row .pph-rt:hover {
+	border-color: #e8622c;
+	box-shadow: 0 6px 16px rgba(20, 12, 8, .10);
+	transform: translateY(-2px);
+}
+
+.pph-rt-row .pph-logo {
+	display: block;
+	height: 26px;
+	width: auto;
+	max-width: 134px;
+}
+
+.pph-rt-cap {
+	font-family: 'Urbanist', sans-serif;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: .02em;
+	color: #6f665e;
+	text-align: center;
+	white-space: nowrap;
+}
+
+/* Not part of the selected format: faded, but still clickable. */
+.pph-rt-row .pph-rt.is-dim {
+	opacity: .34;
+	filter: grayscale(1);
+}
+
+.pph-rt-row .pph-rt.is-dim:hover {
+	opacity: .85;
+	filter: grayscale(0);
+}
+
+.pph-rt-strip .pph-rt-note {
+	margin-top: 10px;
+	font-size: 12.5px;
+	color: #8a817a;
+}
+
+/* ---- print format selected: explain, and point at the strip ---- */
+
+.pph-print-note {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-top: 16px;
+	padding: 13px 15px;
+	background: #fefcf6;
+	border: 1px solid #e6ddca;
+	border-radius: 12px;
+	font-size: 13.5px;
+	line-height: 1.5;
+	color: #5c534c;
+}
+
+.pph-print-note strong { color: #3f1717; }
+
+.pph-print-note .pph-ic {
+	width: 18px;
+	height: 18px;
+	flex: 0 0 18px;
+	margin-top: 1px;
+	color: #cf4f1d;
+}
+
+/* ---- thumbnail rail: "View larger" is now a tile, like the mockup ---- */
+
+.pph-rail .pph-rail-more {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	padding: 10px 4px;
+	background: #fff;
+	border: 1px dashed #cbbb98;
+	border-radius: 10px;
+	color: #5c534c;
+	text-decoration: none;
+	font-family: 'Urbanist', sans-serif;
+	font-size: 10.5px;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	line-height: 1.2;
+	text-align: center;
+	transition: border-color .18s, color .18s;
+}
+
+.pph-rail .pph-rail-more:hover {
+	border-color: #e8622c;
+	color: #cf4f1d;
+}
+
+.pph-rail .pph-rail-more .pph-ic {
+	width: 20px;
+	height: 20px;
+}
+
+@media (max-width: 900px) {
+	.pph-rt-row { gap: 10px; }
+
+	.pph-rt-row .pph-rt {
+		min-width: 92px;
+		padding: 10px 12px 9px;
+	}
+
+	.pph-rt-row .pph-logo {
+		height: 22px;
+		max-width: 112px;
+	}
+}
+
+
+/* =========================================================================
+   5.5  ->  A. COVERS NEVER CROP
+   The WooCommerce thumbnail sizes are hard crops, which used to shave the
+   edges off a book cover. Everything now uses contain, so the cover is whole.
+   ========================================================================= */
+
+.pph-side-cover {
+  width: 62px;
+  height: 88px;
+  flex: 0 0 62px;
+  background: #fff;
+  border: 1px solid #e7e1d6;
+  border-radius: 6px;
+  padding: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pph-side-cover img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 3px;
+}
+
+.pph-rail .pph-thumb img,
+.pph-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center;
+  background: #fff;
+}
+
+.pph-pp-cover-img {
+  object-fit: contain !important;
+  object-position: center bottom;
+}
+
+.pph-samples .pph-sample img {
+  object-fit: contain !important;
+  background: #fff;
+}
+
+/* =========================================================================
+   5.5  ->  B. WHAT IS INCLUDED  (filter + sort)
+   ========================================================================= */
+
+.pph-res-wrap {
+  margin: 2px 0 0;
+}
+
+.pph-res-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  padding: 0 0 18px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #eae6df;
+}
+
+.pph-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 15px;
+  background: #f8f3e9;
+  border: 1.5px solid #e6ddca;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: #5c534c;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.pph-chip:hover {
+  border-color: #cbbb98;
+  color: #3f1717;
+}
+
+.pph-chip.is-on {
+  background: #3f1717;
+  border-color: #3f1717;
+  color: #fff;
+}
+
+.pph-chip-n {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: .75;
+}
+
+.pph-res-sort {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #8a817a;
+}
+
+.pph-res-sort select {
+  height: 38px;
+  padding: 0 10px;
+  border: 1.5px solid #e6ddca;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #141414;
+  cursor: pointer;
+}
+
+.pph-res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 14px;
+}
+
+.pph-res-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 16px 17px;
+  background: #fefcf6;
+  border: 1px solid #e9e2da;
+  border-radius: 12px;
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.pph-res-card:hover {
+  border-color: #d2c7ad;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(20, 12, 8, .07);
+}
+
+.pph-res-card[hidden] {
+  display: none;
+}
+
+.pph-res-ic {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  color: #e8622c;
+  margin-top: 1px;
+}
+
+.pph-res-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pph-res-t {
+  font-size: 15px;
+  font-weight: 700;
+  color: #141414;
+  line-height: 1.35;
+}
+
+.pph-res-m {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 5px 0 0;
+  font-size: 12.5px;
+  color: #6f665e;
+}
+
+.pph-res-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #f4f0e7;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: #5c534c;
+}
+
+.pph-res-note {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: #8a817a;
+  line-height: 1.5;
+}
+
+.pph-res-empty {
+  padding: 22px;
+  text-align: center;
+  font-size: 13.5px;
+  color: #8a817a;
+  background: #faf7f3;
+  border: 1px dashed #e6ddca;
+  border-radius: 12px;
+}
+
+/* =========================================================================
+   5.5  ->  C. FRESHNESS STRIP
+   ========================================================================= */
+
+.pph-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 9px;
+  margin: 14px 0 0;
+}
+
+.pph-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f2f9f3;
+  border: 1px solid #d8ead9;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #256029;
+}
+
+/* =========================================================================
+   5.5  ->  D. FAQ ACCORDION
+   ========================================================================= */
+
+.pph-faq {
+  border-top: 1px solid #eae6df;
+}
+
+.pph-faq-item {
+  border-bottom: 1px solid #eae6df;
+}
+
+.pph-faq-q {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  padding: 17px 2px;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #3f1717;
+  text-align: left;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.pph-faq-q:hover {
+  color: #e8622c;
+}
+
+.pph-faq-sign {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f4f0e7;
+  color: #5c534c;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+  transition: background .15s ease, color .15s ease;
+}
+
+.pph-faq-item.is-open .pph-faq-sign {
+  background: #e8622c;
+  color: #fff;
+}
+
+.pph-faq-a {
+  padding: 0 34px 19px 2px;
+  font-size: 14.5px;
+  color: #5c534c;
+  line-height: 1.68;
+}
+
+.pph-faq-a[hidden] {
+  display: none;
+}
+
+/* =========================================================================
+   5.5  ->  E. STICKY MOBILE BUY BAR
+   ========================================================================= */
+
+.pph-buybar {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .pph-buybar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, .97);
+    border-top: 1px solid #e7e1d6;
+    box-shadow: 0 -6px 20px rgba(20, 12, 8, .12);
+    transform: translateY(120%);
+    transition: transform .22s ease;
+  }
+
+  .pph-buybar.is-in {
+    transform: translateY(0);
+  }
+
+  .pph-buybar-cover {
+    width: 34px;
+    height: 48px;
+    flex: 0 0 34px;
+  }
+
+  .pph-buybar-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 3px;
+  }
+
+  .pph-buybar-info {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .pph-buybar-t {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #141414;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pph-buybar-p {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e8622c;
+  }
+
+  .pph-buybar-btn {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    background: #e8622c;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .pph-res-sort {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .pph-res-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================================
+   5.8.0  ->  ONE HEADING, A REAL IMAGE VIEWER, AND A CLEAR BUY ROUTE
+   ========================================================================= */
+
+/* ---------- 1. Title and subtitle read as one name ---------------------- */
+
+.pph-pp-title {
+  display: block;
+  margin: 0;
+}
+
+.pph-pp-titlemain,
+.pph-pp-subtitle {
+  display: block;
+  font-family: Playfair Display, Georgia, serif;
+  font-weight: 700;
+  color: #141414;
+  font-style: normal;
+  letter-spacing: -0.2px;
+  line-height: 1.16;
+  text-transform: none;
+  opacity: 1;
+}
+
+.pph-pp-subtitle {
+  font-size: 0.78em;
+  margin-top: 4px;
+}
+
+@media (max-width: 782px) {
+  .pph-pp-subtitle { font-size: 0.82em; }
+}
+
+/* ---------- 2. The cover invites a click -------------------------------- */
+
+.pph-book.is-zoomable {
+  cursor: zoom-in;
+}
+
+.pph-book.is-zoomable:focus-visible {
+  outline: 3px solid #e8622c;
+  outline-offset: 6px;
+  border-radius: 10px;
+}
+
+.pph-thumb {
+  cursor: pointer;
+}
+
+/* ---------- 3. The image viewer ----------------------------------------- */
+
+body.pph-lb-open {
+  overflow: hidden;
+}
+
+.pph-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 72px 84px;
+  background: rgba(20, 12, 8, 0.92);
+}
+
+.pph-lb[hidden] {
+  display: none;
+}
+
+.pph-lb-stage {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pph-lb img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fefcf6;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.pph-lb img.is-in {
+  opacity: 1;
+}
+
+/* Close */
+.pph-lb-x {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pph-lb-x:hover {
+  background: #e8622c;
+  border-color: #e8622c;
+}
+
+/* Left and right arrows */
+.pph-lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.pph-lb-nav span {
+  display: block;
+  margin-top: -6px;
+}
+
+.pph-lb-nav:hover {
+  background: #e8622c;
+  border-color: #e8622c;
+}
+
+.pph-lb-nav[hidden] {
+  display: none;
+}
+
+.pph-lb-prev { left: 14px; }
+.pph-lb-next { right: 14px; }
+
+/* Counter and dots */
+.pph-lb-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pph-lb-count {
+  font-family: Urbanist, system-ui, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.pph-lb-dots {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90vw;
+}
+
+.pph-lb-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.34);
+  cursor: pointer;
+}
+
+.pph-lb-dot.is-on {
+  background: #e8622c;
+  transform: scale(1.25);
+}
+
+/* On a phone the arrows step aside and the swipe leads. */
+@media (max-width: 782px) {
+  .pph-lb {
+    padding: 52px 12px 78px;
+  }
+  .pph-lb-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 30px;
+    background: rgba(255, 255, 255, 0.16);
+  }
+  .pph-lb-prev { left: 6px; }
+  .pph-lb-next { right: 6px; }
+  .pph-lb-dot { width: 8px; height: 8px; }
+}
+
+/* ---------- 4. Sold here, or sold at a retailer ------------------------- */
+
+.pph-buy-here {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #f4fbf5;
+  border: 1px solid #cfe6d3;
+  border-radius: 12px;
+  font-family: Urbanist, system-ui, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #3a332e;
+}
+
+.pph-buy-here svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+}
+
+.pph-print-note {
+  align-items: flex-start;
+}
+
+
+/* =========================================================================
+   5.8.1  ->  DETAILS FIRST, GROUPED BY EDITION, REVIEWS ON THEIR OWN
+   ========================================================================= */
+
+.pph-dl-block {
+  margin: 0 0 26px;
+}
+
+.pph-dl-block:last-child {
+  margin-bottom: 0;
+}
+
+.pph-dl-h {
+  margin: 0 0 12px;
+  padding: 0 0 8px;
+  border-bottom: 2px solid #e8622c;
+  font-family: Urbanist, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #3f1717;
+}
+
+/* The very first row of the very first block is the Publisher line, so it is
+   given a little more presence. */
+.pph-dl-block:first-child .pph-dl-row:first-child .pph-dl-k,
+.pph-dl-block:first-child .pph-dl-row:first-child .pph-dl-v {
+  font-weight: 700;
+  color: #141414;
+}
+
+/* Reviews now sit below the tab card as their own section. */
+.pph-reviews-sec {
+  margin-top: 34px;
+  padding: 24px 26px 8px;
+  background: #fefcf6;
+  border: 1px solid #e7e1d6;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(20, 12, 8, 0.06);
+}
+
+.pph-reviews-sec .pph-pp-sec {
+  margin-top: 0;
+}
+
+@media (max-width: 782px) {
+  .pph-reviews-sec {
+    padding: 18px 16px 6px;
+    border-radius: 12px;
+  }
+}
+
+
+/* =========================================================================
+   5.9.0  ->  DETAILS IN ONE VERTICAL COLUMN, ONE BLOCK PER FORMAT
+   ========================================================================= */
+
+/* One fact per row, top to bottom. The old two column grid is retired. */
+.pph-panel[data-panel=details] .pph-dl {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+}
+
+.pph-panel[data-panel=details] .pph-dl-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 2px;
+  border-bottom: 1px solid #e7e1d6;
+}
+
+.pph-panel[data-panel=details] .pph-dl-row:last-child {
+  border-bottom: 0;
+}
+
+.pph-panel[data-panel=details] .pph-dl-row:nth-child(odd) {
+  background: #fdfcfa;
+}
+
+.pph-panel[data-panel=details] .pph-dl-k {
+  flex: 0 0 42%;
+  max-width: 42%;
+}
+
+.pph-panel[data-panel=details] .pph-dl-v {
+  flex: 1 1 auto;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* The line that explains why the block changes with the format. */
+.pph-dl-hint {
+  margin: 0 0 14px;
+  font-family: Urbanist, system-ui, sans-serif;
+  font-size: 13px;
+  color: #6f665e;
+}
+
+/* A per-format block is revealed by the format cards above. */
+.pph-dl-fmt[hidden] {
+  display: none;
+}
+
+.pph-dl-fmt {
+  padding: 16px 18px;
+  background: #faf7f3;
+  border: 1px solid #e7e1d6;
+  border-radius: 14px;
+}
+
+.pph-dl-fmt .pph-dl-h {
+  margin-top: 0;
+}
+
+.pph-dl-fmt .pph-dl-row:nth-child(odd) {
+  background: transparent;
+}
+
+@media (max-width: 782px) {
+  .pph-panel[data-panel=details] .pph-dl-row {
+    flex-direction: column;
+    gap: 3px;
+    padding: 11px 2px;
+  }
+  .pph-panel[data-panel=details] .pph-dl-k,
+  .pph-panel[data-panel=details] .pph-dl-v {
+    flex: 1 1 auto;
+    max-width: 100%;
+    text-align: left;
+  }
+  .pph-dl-fmt {
+    padding: 14px 14px;
+  }
+}
+
+
+/* =========================================================================
+   5.10.0  ->  CURRENCY SWITCH LINE
+   ========================================================================= */
+
+.pph-cur-switch {
+  margin: 6px 0 0;
+  font-family: Urbanist, system-ui, sans-serif;
+  font-size: 12.5px;
+  color: #6f665e;
+}
+
+.pph-cur-switch a {
+  color: #cf4f1d;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.pph-cur-switch a:hover {
+  color: #e8622c;
+}
+
+
+/* =========================================================================
+   5.11.0  ->  MOBILE SPACING, ONE LINE TABS, SAFE CLOSE BUTTON, BOOK MOCKS
+   ========================================================================= */
+
+/* ---- 1. no price inside the format card -------------------------------- */
+/* The card is an information tile now. The amount lives in the buy box. */
+.pph-fmt-price { display: none !important; }
+
+
+/* ---- 2. the thumbnail rail needs room to breathe on a phone ------------ */
+@media (max-width: 782px) {
+  .pph-rail {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin: 18px 0 6px;
+    padding: 10px 14px 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pph-rail::-webkit-scrollbar { display: none; }
+
+  .pph-thumb {
+    flex: 0 0 auto;
+    width: 62px;
+    height: 78px;
+    padding: 4px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #e7e1d6;
+    box-shadow: 0 3px 10px rgba(20, 12, 8, .08);
+  }
+  .pph-thumb.is-on {
+    border-color: #e8622c;
+    box-shadow: 0 0 0 2px rgba(232, 98, 44, .25);
+  }
+  .pph-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .pph-rail-more { flex: 0 0 auto; align-self: center; margin-left: 4px; }
+
+  .pph-pp-cover { margin-bottom: 4px; }
+}
+
+
+/* ---- 3. the four tabs stay on one line on a phone ---------------------- */
+@media (max-width: 782px) {
+  .pph-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pph-tabs::-webkit-scrollbar { display: none; }
+
+  .pph-tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 11px;
+    letter-spacing: .3px;
+    padding: 10px 9px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pph-tab { font-size: 10px; padding: 10px 7px; }
+}
+
+
+/* ---- 4. the large view sits above every floating button ---------------- */
+.pph-lb { z-index: 2147483000 !important; }
+
+/* Anything that floats over the page is parked while the viewer is open,
+   so a tap on Close can never reach the menu button underneath it. */
+body.pph-lb-open .pph-buybar,
+body.pph-lb-open #ast-scroll-top,
+body.pph-lb-open .ast-scroll-top-icon,
+body.pph-lb-open .ast-mobile-header-wrap,
+body.pph-lb-open #ast-mobile-header,
+body.pph-lb-open .elementor-button-back-to-top,
+body.pph-lb-open .grecaptcha-badge {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* The close button moved to the left, away from the menu button corner,
+   and it clears the notch on a phone. */
+.pph-lb-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  padding: calc(env(safe-area-inset-top, 0px) + 14px) 16px 0;
+  z-index: 6;
+}
+
+.pph-lb-x {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 16px 0 13px;
+  font: 600 14px/1 Urbanist, system-ui, sans-serif;
+  color: #141414;
+  background: #fff;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+}
+
+.pph-lb-x span[aria-hidden] { font-size: 22px; line-height: 1; }
+.pph-lb-x:hover { background: #f8f3e9; }
+
+@media (max-width: 480px) {
+  .pph-lb-x-t { display: none; }
+  .pph-lb-x { min-width: 44px; justify-content: center; padding: 0 12px; }
+}
+
+
+/* ---- 5. the large view shows the plain picture ------------------------ */
+/* 5.11.1: no frames and no mock styling here. Only the cover on the page
+   keeps its own three dimensional look, which lives higher up in this file. */
+
+.pph-lb-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  filter: none;
+  max-width: min(94vw, 940px);
+  line-height: 0;
+}
+
+.pph-lb-stage::before,
+.pph-lb-stage::after { content: none !important; display: none !important; }
+
+.pph-lb-stage img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 3px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .45);
+}
+
+@media (max-width: 600px) {
+  .pph-lb-stage { max-width: 94vw; }
+  .pph-lb-stage img { max-height: 72vh; }
+}
+
+
+/* =========================================================================
+   5.11.2  ->  CLOSE BUTTON
+   ========================================================================= */
+
+.pph-lb-x-t { display: none !important; }
+
+.pph-lb-top {
+  padding: calc(env(safe-area-inset-top, 0px) + 26px) 28px 0 !important;
+}
+
+.pph-lb-x {
+  min-width: 46px;
+  min-height: 46px;
+  justify-content: center;
+  padding: 0 12px;
+  gap: 0;
+}
+
+.pph-lb-x span[aria-hidden] { font-size: 24px; }
+
+@media (max-width: 600px) {
+  .pph-lb-top {
+    padding: calc(env(safe-area-inset-top, 0px) + 20px) 20px 0 !important;
+  }
+}
+
+/* =========================================================================
+   5.11.3  ->  TIGHTER DESKTOP COVER AREA AND A SHORTER SHADOW
+   ========================================================================= */
+/* Everything here is desktop only. The phone layout is not touched. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero,
+  .pph-pp-hero.has-rail {
+    padding-top: 10px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .pph-pp-cover { align-items: flex-start; }
+
+  .pph-rail { margin-top: 0; }
+
+  .pph-book { margin-bottom: -34px; }
+
+  /* The long dark pool behind the book is pulled in close, so it reads as a
+     contact shadow rather than a second block of colour. */
+  .pph-pp-cover::after {
+    left: 26%;
+    right: 26%;
+    top: 62%;
+    bottom: 2%;
+    background: rgba(18, 10, 6, .34);
+    filter: blur(16px);
+    transform: translate(10px, 12px);
+    border-radius: 18px;
+  }
+
+  .pph-book .pph-pp-cover-img,
+  .pph-book img {
+    box-shadow: 0 6px 12px -7px rgba(0, 0, 0, .34) !important;
+  }
+}
+
+
+/* =========================================================================
+   5.11.4  ->  THE COVER SITS ON ITS OWN SHADOW
+   ========================================================================= */
+/* Desktop only. The separate blurred panel behind the book was drifting away
+   from the cover and reading as a grey box, so it is switched off and the
+   cover carries one short shadow of its own. The phone layout is untouched. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero,
+  .pph-pp-hero.has-rail {
+    padding-top: 10px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .pph-rail { margin-top: 0; }
+
+  .pph-pp-cover {
+    align-items: flex-start;
+    padding-bottom: 0;
+  }
+
+  .pph-pp-cover::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .pph-book {
+    margin-bottom: 0 !important;
+  }
+
+  .pph-book .pph-pp-cover-img,
+  .pph-book img {
+    box-shadow: 0 10px 16px -12px rgba(0, 0, 0, .55) !important;
+  }
+}
+
+
+/* =========================================================================
+   5.11.5  ->  THE COVER IS CENTRED IN ITS COLUMN
+   ========================================================================= */
+/* Desktop only. The cover was pinned to the top of the band while the text
+   column beside it ran much further down, which left it sitting high. It is
+   now centred against that column. The phone layout is untouched. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero,
+  .pph-pp-hero.has-rail {
+    align-items: center;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .pph-pp-cover {
+    align-items: center !important;
+    align-self: center;
+    padding-bottom: 0;
+  }
+
+  .pph-rail {
+    align-self: center;
+    margin-top: 0;
+  }
+}
+
+
+/* =========================================================================
+   5.11.6  ->  RAIL EDGE TO EDGE, COVER CENTRED BETWEEN ITS ENDS
+   ========================================================================= */
+/* Desktop only. The band is tightened to a hair line at the top and the
+   bottom, the thumbnail column is stretched over the whole height so the
+   first and the last thumbnail mark the two ends, and the cover is held to
+   that same height so it sits evenly between them. The phone layout is not
+   touched anywhere in this block. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero,
+  .pph-pp-hero.has-rail {
+    align-items: stretch;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  /* the thumbnails run from the very top to the very bottom */
+  .pph-pp-hero.has-rail .pph-rail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 6px;
+  }
+
+  /* the cover keeps the same height and stays centred inside it */
+  .pph-pp-cover {
+    align-self: stretch;
+    align-items: center !important;
+    justify-content: center;
+    height: 100%;
+    padding: 0 !important;
+  }
+
+  .pph-book {
+    margin: 0 !important;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .pph-book .pph-pp-cover-img,
+  .pph-book img {
+    max-height: 100%;
+    width: auto !important;
+    max-width: 100%;
+    object-fit: contain;
+    /* one soft shadow, low and close, so it reads as the book resting down */
+    box-shadow: 0 16px 18px -16px rgba(0, 0, 0, .5) !important;
+  }
+}
+
+
+/* =========================================================================
+   5.11.7  ->  THE RAIL IS AS TALL AS THE COVER, NOT AS TALL AS THE COLUMN
+   ========================================================================= */
+/* Desktop only. Spreading the thumbnails over the whole column pushed wide
+   gaps between them. The column stretch is dropped, the gaps are closed to a
+   few pixels, and the group is centred against the cover, so the stack of
+   thumbnails and the big picture read as the same height. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero.has-rail .pph-rail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: auto !important;
+    max-height: none;
+    gap: 6px !important;
+    row-gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .pph-pp-hero.has-rail .pph-rail > * {
+    margin: 0 !important;
+    flex: 0 0 auto;
+  }
+
+  .pph-pp-hero.has-rail .pph-rail .pph-rail-more {
+    margin-top: 4px !important;
+  }
+
+  .pph-pp-cover {
+    align-self: center;
+    height: auto;
+  }
+}
+
+
+/* =========================================================================
+   5.11.8  ->  A BIGGER COVER AND A ROOMIER RETAILER BUTTON
+   ========================================================================= */
+
+/* ---- the picture fills the space instead of floating inside it --------- */
+/* Desktop only. The cover column was much taller than the picture, which
+   left a wide empty strip above and below it. The picture is now allowed to
+   use the full width of its column and to grow to the height of the
+   thumbnail stack beside it. The phone layout is untouched. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero.has-rail .pph-pp-cover {
+    align-self: center;
+    align-items: center !important;
+    padding: 0 !important;
+  }
+
+  .pph-book {
+    width: 100% !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pph-book .pph-pp-cover-img,
+  .pph-book img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 430px !important;
+    object-fit: contain;
+    box-shadow: 0 16px 18px -16px rgba(0, 0, 0, .5) !important;
+  }
+}
+
+/* ---- the retailer button gives the wordmark room to breathe ------------ */
+
+.pph-rt-row .pph-rt {
+  min-width: 128px;
+  padding: 13px 20px 11px;
+  gap: 8px;
+}
+
+.pph-rt-row .pph-logo {
+  height: 24px;
+  max-width: 152px;
+}
+
+.pph-rt-cap {
+  font-size: 11.5px;
+  letter-spacing: .05em;
+  line-height: 1.3;
+}
+
+
+/* =========================================================================
+   5.11.9  ->  THUMBNAILS UNDER THE COVER ON THE DESKTOP TOO
+   ========================================================================= */
+/* Desktop only, and it overrides every earlier rule in this file.
+
+   The thumbnails move out of the narrow side column and sit in a row under
+   the cover, the same shape the phone already uses. That frees the whole
+   left column for the picture, so the cover can be drawn much larger and the
+   empty strip above and below it disappears.
+
+   It also undoes the 5.11.8 sizing. Stretching the book box to the full
+   column width pulled the spine and the page stack of the three dimensional
+   cover away from the picture, which is the grey slab that appeared beside
+   the book. The box hugs the picture again, so those two faces sit back on
+   its edges. */
+
+@media (min-width: 783px) {
+
+  /* ---- two columns, and the left one carries two rows ---- */
+  .pph-pp-hero.has-rail {
+    grid-template-columns: 1fr 1.12fr !important;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 48px 20px !important;
+  }
+
+  .pph-pp-hero.has-rail .pph-pp-cover {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    height: auto;
+    padding: 0 !important;
+  }
+
+  .pph-pp-hero.has-rail > .pph-pp-info {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  /* ---- the rail lies down under the picture ---- */
+  .pph-pp-hero.has-rail .pph-rail {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: auto !important;
+    max-height: none;
+    gap: 10px !important;
+    row-gap: 10px !important;
+    margin: 0 !important;
+    padding: 20px 0 4px !important;
+  }
+
+  .pph-pp-hero.has-rail .pph-thumb {
+    flex: 0 0 auto;
+    width: 64px;
+    margin: 0 !important;
+  }
+
+  .pph-pp-hero.has-rail .pph-rail-more {
+    flex: 0 0 auto;
+    width: 64px;
+    margin: 0 !important;
+    padding: 12px 4px;
+  }
+
+  /* ---- a bigger cover, with its own faces back in place ---- */
+  .pph-pp-hero.has-rail .pph-book {
+    display: block !important;
+    width: 74% !important;
+    max-width: 430px;
+    max-height: none !important;
+    margin: 0 auto !important;
+  }
+
+  .pph-pp-hero.has-rail .pph-book .pph-pp-cover-img,
+  .pph-pp-hero.has-rail .pph-book img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    max-width: none !important;
+    object-fit: fill;
+    /* one shadow, sitting low and close under the book */
+    box-shadow: 0 18px 24px -18px rgba(0, 0, 0, .5) !important;
+  }
+
+  /* the loose blur panel stays switched off */
+  .pph-pp-hero.has-rail .pph-pp-cover::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+
+/* =========================================================================
+   5.11.10  ->  THE OLD DEEP SHADOW IS BACK
+   ========================================================================= */
+/* The soft contact shadow of the last few builds is dropped and the original
+   pair from the early releases is restored:
+
+     1. a wide dark blur panel behind the book, cast down and to the right,
+        which is the .pph-pp-cover::after element that was switched off in
+        5.11.4 while the loose grey slab was being chased, and
+     2. the close edge shadow on the picture itself.
+
+   The panel is tied to the book again with the original numbers, so it sits
+   behind the cover instead of drifting away from it. The layout of 5.11.9,
+   with the thumbnails in a row under the picture, is left alone. */
+
+@media (min-width: 783px) {
+
+  .pph-pp-hero.has-rail .pph-pp-cover {
+    position: relative;
+    perspective: 1400px;
+    perspective-origin: 52% 50%;
+    overflow: visible;
+  }
+
+  .pph-pp-hero.has-rail .pph-pp-cover::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute;
+    z-index: 0;
+    left: 18%;
+    right: 18%;
+    top: 15%;
+    bottom: 0;
+    background: rgba(18, 10, 6, .55);
+    filter: blur(30px);
+    transform: translate(26px, 34px);
+    border-radius: 24px;
+    pointer-events: none;
+  }
+
+  .pph-pp-hero.has-rail .pph-book {
+    position: relative;
+    z-index: 2;
+  }
+
+  .pph-pp-hero.has-rail .pph-book .pph-pp-cover-img,
+  .pph-pp-hero.has-rail .pph-book img {
+    position: relative;
+    z-index: 2;
+    border-radius: 2px 4px 4px 2px !important;
+    box-shadow: 0 10px 18px -8px rgba(0, 0, 0, .4) !important;
+  }
+}
+
+
+/* =========================================================================
+   5.11.13  ->  EVERY BOOK GETS THE SAME COVER TREATMENT
+   ========================================================================= */
+/* A book with extra sample pictures carries the class has-rail on its hero,
+   and a book with only a front cover does not. The work done in 5.11.9 and
+   5.11.10 was written against has-rail alone, so only the books with a
+   thumbnail strip were repaired.
+
+   Worse, one rule from 5.11.8 was left unscoped: it stretched the book box
+   to the whole column and turned it into a flex row. On a book with no
+   thumbnails that rule was the only one still in force, which pulled the
+   spine of the three dimensional cover away from the picture and left it
+   standing alone as a grey slab.
+
+   This block undoes that rule and gives every hero, with a rail or without
+   one, the same sizing and the same pair of shadows. Desktop only. */
+
+@media (min-width: 783px) {
+
+  /* ---- the box hugs the picture again ---- */
+  .pph-pp-hero .pph-book {
+    display: block !important;
+    width: 74% !important;
+    max-width: 430px;
+    max-height: none !important;
+    margin: 0 auto !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pph-pp-hero .pph-book .pph-pp-cover-img,
+  .pph-pp-hero .pph-book img {
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: fill;
+    border-radius: 2px 4px 4px 2px !important;
+    box-shadow: 0 10px 18px -8px rgba(0, 0, 0, .4) !important;
+  }
+
+  /* ---- the deep panel behind the book, on every product ---- */
+  .pph-pp-hero .pph-pp-cover {
+    position: relative;
+    perspective: 1400px;
+    perspective-origin: 52% 50%;
+    overflow: visible;
+    align-items: center !important;
+    align-self: center;
+    height: auto;
+    padding: 0 !important;
+  }
+
+  .pph-pp-hero .pph-pp-cover::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute;
+    z-index: 0;
+    left: 18%;
+    right: 18%;
+    top: 15%;
+    bottom: 0;
+    background: rgba(18, 10, 6, .55);
+    filter: blur(30px);
+    transform: translate(26px, 34px);
+    border-radius: 24px;
+    pointer-events: none;
+  }
+
+  /* ---- a book with no thumbnails keeps the same band height ---- */
+  .pph-pp-hero:not(.has-rail) {
+    align-items: center;
+    padding: 26px 48px 20px !important;
+  }
+}
+
+/* =========================================================================
+   5.13.0  ->  KEYBOARD FOCUS ON THE TABS
+
+   Moving through the tabs with the arrow keys drew the browser default focus
+   ring, which is blue. The tab now fills with the brand orange and the label
+   turns white, so the focused tab reads clearly and matches the rest of the
+   page. The same treatment is given to the format cards and to the panel
+   links, so nothing on the book page shows a blue ring any more.
+   ========================================================================= */
+
+.pph-tab:focus { outline: none !important; }
+
+.pph-tab:focus-visible,
+.pph-tab:focus:not(:hover),
+.pph-tabs .pph-tab:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(232, 98, 44, .28) !important;
+  background: #e8622c !important;
+  color: #fff !important;
+  border-radius: 5px 5px 0 0;
+  border-bottom-color: #cf4f1d !important;
+}
+
+.pph-tab:focus-visible.is-on,
+.pph-tab:focus:not(:hover).is-on {
+  color: #fff !important;
+  background: #cf4f1d !important;
+}
+
+.pph-fmt:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(232, 98, 44, .28) !important;
+  border-color: #e8622c !important;
+}
+
+.pph-pp :focus-visible:not(.pph-tab):not(.pph-fmt):not(input):not(textarea):not(select) {
+  outline: 2px solid #e8622c !important;
+  outline-offset: 2px;
+}
+
+/* =========================================================================
+   5.14.0  ->  THE TABS TURN ORANGE, NEVER BLUE
+
+   The theme paints every button element with its own link colour, which is
+   blue, and that rule was winning on hover and on click because our tab rule
+   set no background of its own. The tab now carries the brand orange with
+   white lettering whenever the pointer is over it, whenever it is held down,
+   and whenever the keyboard lands on it. The resting state is forced back to
+   transparent so the theme cannot colour it at all.
+   ========================================================================= */
+
+.pph-tabs .pph-tab,
+.pph-tabs button.pph-tab {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.pph-tabs .pph-tab:hover,
+.pph-tabs .pph-tab:active,
+.pph-tabs .pph-tab:focus,
+.pph-tabs .pph-tab:focus-visible,
+.pph-tabs button.pph-tab:hover,
+.pph-tabs button.pph-tab:active,
+.pph-tabs button.pph-tab:focus,
+.pph-tabs button.pph-tab:focus-visible {
+  outline: none !important;
+  background: #e8622c !important;
+  background-color: #e8622c !important;
+  background-image: none !important;
+  color: #fff !important;
+  border-radius: 5px 5px 0 0;
+  border-bottom-color: #cf4f1d !important;
+  box-shadow: none !important;
+}
+
+.pph-tabs .pph-tab:focus-visible {
+  box-shadow: 0 0 0 3px rgba(232, 98, 44, .28) !important;
+}
+
+.pph-tabs .pph-tab.is-on:hover,
+.pph-tabs .pph-tab.is-on:focus,
+.pph-tabs .pph-tab.is-on:focus-visible {
+  background: #cf4f1d !important;
+  background-color: #cf4f1d !important;
+  color: #fff !important;
+}
+
+
+/* 5.15.1 - Free Sample format card + simple download action */
+.pph-free-sample-card{ cursor:pointer; }
+.pph-free-sample-download{
+  display:inline-flex; align-items:center; justify-content:center; gap:7px;
+  width:100%; box-sizing:border-box; text-decoration:none!important;
+  background:var(--orange,#e8622c); color:#fff!important;
+  border:0; border-radius:6px; padding:12px 18px;
+  font-family:'Urbanist',sans-serif; font-size:13px; font-weight:700;
+  line-height:1.2; transition:background .16s ease, transform .16s ease;
+}
+.pph-free-sample-download:hover{ background:#d95625; color:#fff!important; transform:translateY(-1px); }
+.pph-free-sample-act{ padding-top:0; margin-bottom:18px; }
+.pph-free-sample-act[hidden]{ display:none!important; }
+
+
+/* 5.16.0 - Free Sample email pop-up (email optional) */
+html.pph-lead-open{ overflow:hidden; }
+.pph-lead[hidden]{ display:none!important; }
+.pph-lead{
+  position:fixed; inset:0; z-index:99999; display:flex; align-items:center; justify-content:center;
+  padding:16px; background:rgba(22,34,63,.55); font-family:'Urbanist',sans-serif;
+}
+.pph-lead-box{
+  position:relative; width:100%; max-width:420px; box-sizing:border-box; background:#fff;
+  border-radius:14px; padding:28px 24px 22px; text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.28); color:#2b2420;
+}
+.pph-lead-box h3{ margin:0 0 4px; font-size:20px; line-height:1.25; color:#16223F; }
+.pph-lead-box p{ margin:0 0 12px; font-size:14px; line-height:1.5; }
+.pph-lead-sub{ font-weight:700; color:#e8622c; font-size:13px!important; }
+.pph-lead-x{
+  position:absolute; top:8px; right:10px; width:34px; height:34px; border:0; background:transparent;
+  font-size:26px; line-height:1; cursor:pointer; color:#6f665e; border-radius:50%;
+}
+.pph-lead-x:hover{ background:#f3eee6; color:#16223F; }
+.pph-lead-form{ display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+.pph-lead-form input[type=email]{
+  width:100%; box-sizing:border-box; padding:12px 14px; font-size:15px;
+  border:1px solid #dcd7ce; border-radius:8px; background:#fcfbf9; font-family:inherit;
+}
+.pph-lead-form input[type=email]:focus{ outline:2px solid #e8622c; outline-offset:1px; background:#fff; }
+.pph-lead-hp{ position:absolute!important; left:-9999px!important; width:1px; height:1px; opacity:0; }
+.pph-lead-err{ color:#b3261e; font-size:13px; text-align:left; }
+.pph-lead-go, .pph-lead-dl{
+  display:inline-flex; align-items:center; justify-content:center; gap:7px; width:100%;
+  box-sizing:border-box; border:0; border-radius:8px; padding:13px 18px; cursor:pointer;
+  background:#e8622c; color:#fff!important; font:700 14px/1.2 'Urbanist',sans-serif;
+  text-decoration:none!important; transition:background .16s ease;
+}
+.pph-lead-go:hover, .pph-lead-dl:hover{ background:#d95625; }
+.pph-lead-go[disabled]{ opacity:.7; cursor:wait; }
+.pph-lead-alt{ display:flex; justify-content:center; gap:22px; margin-top:12px; }
+.pph-lead-link{
+  background:none; border:0; padding:6px 4px; cursor:pointer; color:#6f665e;
+  font:600 13px/1 'Urbanist',sans-serif; text-decoration:underline;
+}
+.pph-lead-link:hover{ color:#16223F; }
+.pph-lead-s2 .pph-lead-link{ margin-top:10px; }
+.pph-lead-thanks{ color:#256029; font-weight:600; }

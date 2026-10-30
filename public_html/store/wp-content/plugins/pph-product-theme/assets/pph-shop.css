@@ -1,0 +1,2119 @@
+/* =========================================================================
+   PPH  ->  Cart / Checkout / Order-received      (plugin 5.6)
+
+   The design matches the PPH product page: cream background, maroon heading,
+   orange action. The one rule that never bends - a book cover is never
+   cropped, so object-fit contain is used everywhere.
+   ========================================================================= */
+
+:root {
+  --pph-cream: #eae6df;
+  --pph-paper: #fefcf6;
+  --pph-line: #e7e1d6;
+  --pph-ink: #141414;
+  --pph-muted: #6f665e;
+  --pph-maroon: #3f1717;
+  --pph-orange: #e8622c;
+  --pph-orange-d: #cf4f1d;
+}
+
+body.woocommerce-cart,
+body.woocommerce-checkout,
+body.woocommerce-account,
+body.woocommerce-order-received {
+  background: var(--pph-cream);
+}
+
+.woocommerce-cart .site-content,
+.woocommerce-checkout .site-content,
+.woocommerce-account .site-content {
+  padding: 26px 0 60px !important;
+}
+
+.woocommerce-cart .entry-content,
+.woocommerce-checkout .entry-content,
+.woocommerce-account .entry-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.woocommerce-cart .entry-title,
+.woocommerce-checkout .entry-title {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 34px;
+  color: var(--pph-maroon);
+  margin: 0 0 20px;
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+  border: 1px solid var(--pph-line);
+  border-top: 3px solid var(--pph-orange);
+  border-radius: 10px;
+  background: #fffaf7;
+  color: var(--pph-ink);
+  box-shadow: 0 2px 10px rgba(20, 12, 8, .05);
+}
+
+.woocommerce-message::before,
+.woocommerce-info::before {
+  color: var(--pph-orange);
+}
+
+/* =========================================================================
+   CART
+   ========================================================================= */
+
+.woocommerce-cart-form {
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  padding: 8px 18px 18px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+}
+
+.woocommerce-cart table.shop_table {
+  border: 0;
+  border-radius: 0;
+  border-collapse: collapse;
+}
+
+.woocommerce-cart table.shop_table thead th {
+  background: transparent;
+  border-bottom: 2px solid var(--pph-line);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  color: var(--pph-muted);
+  padding: 14px 10px;
+}
+
+.woocommerce-cart table.shop_table td {
+  border-top: 1px solid var(--pph-line);
+  padding: 18px 10px;
+  vertical-align: middle;
+}
+
+/* ---- COVER: always complete, never cropped ---- */
+
+.woocommerce-cart td.product-thumbnail {
+  width: 118px;
+}
+
+.woocommerce-cart td.product-thumbnail a {
+  display: block;
+}
+
+.woocommerce-cart td.product-thumbnail img,
+.woocommerce-cart td.product-thumbnail .pph-cart-img {
+  width: 100px !important;
+  height: 140px !important;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  background: #faf7f3;
+  border: 1px solid var(--pph-line);
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 3px 12px rgba(20, 12, 8, .10);
+}
+
+.woocommerce-cart td.product-name a {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pph-maroon);
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.woocommerce-cart td.product-name a:hover {
+  color: var(--pph-orange);
+}
+
+.woocommerce-cart td.product-name .variation {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--pph-muted);
+}
+
+.woocommerce-cart td.product-name .variation dt,
+.woocommerce-cart td.product-name .variation dd {
+  display: inline;
+  margin: 0 4px 0 0;
+}
+
+.woocommerce-cart td.product-price,
+.woocommerce-cart td.product-subtotal {
+  font-weight: 700;
+  color: var(--pph-ink);
+}
+
+.woocommerce-cart .quantity input.qty {
+  width: 66px;
+  height: 40px;
+  border: 1px solid #d2c7ad;
+  border-radius: 8px;
+  text-align: center;
+  background: #fff;
+}
+
+.woocommerce-cart a.remove {
+  color: #b32d2e !important;
+  font-size: 20px;
+}
+
+.woocommerce-cart a.remove:hover {
+  background: #b32d2e !important;
+  color: #fff !important;
+}
+
+.woocommerce-cart td.actions {
+  border-top: 2px solid var(--pph-line);
+  padding-top: 18px;
+}
+
+.woocommerce-cart .coupon input#coupon_code {
+  height: 44px;
+  min-width: 190px;
+  border: 1px solid #d2c7ad;
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+}
+
+.woocommerce-cart .button,
+.woocommerce-checkout .button,
+.woocommerce-cart button.button,
+.woocommerce-checkout button.button {
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  letter-spacing: .3px;
+  padding: 13px 26px !important;
+  border: 0 !important;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.woocommerce-cart .button:not(.checkout-button),
+.woocommerce-cart button.button[name=update_cart] {
+  background: #f4f0e7 !important;
+  color: var(--pph-maroon) !important;
+}
+
+.woocommerce-cart .checkout-button,
+.woocommerce-checkout #place_order {
+  background: var(--pph-orange) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(232, 98, 44, .30);
+}
+
+.woocommerce-cart .checkout-button:hover,
+.woocommerce-checkout #place_order:hover {
+  background: var(--pph-orange-d) !important;
+  transform: translateY(-1px);
+}
+
+.woocommerce-cart .cart-collaterals {
+  margin-top: 26px;
+}
+
+.woocommerce-cart .cart_totals {
+  background: var(--pph-paper);
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+}
+
+.woocommerce-cart .cart_totals h2 {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 20px;
+  color: var(--pph-maroon);
+  margin: 0 0 12px;
+}
+
+.woocommerce-cart .cart_totals table.shop_table td,
+.woocommerce-cart .cart_totals table.shop_table th {
+  border-top: 1px solid var(--pph-line);
+  padding: 12px 0;
+  background: transparent;
+}
+
+.woocommerce-cart .cart_totals .order-total td,
+.woocommerce-cart .cart_totals .order-total th {
+  border-top: 2px solid #d2c7ad;
+  font-size: 18px;
+}
+
+.woocommerce-cart .cart_totals .order-total .amount {
+  color: var(--pph-orange);
+}
+
+/* =========================================================================
+   TRUST STRIP
+   ========================================================================= */
+
+.pph-trust {
+  margin: 16px 0 0;
+  padding: 16px 18px;
+  background: #f2f9f3;
+  border: 1px solid #d8ead9;
+  border-radius: 12px;
+}
+
+.pph-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.pph-trust-i {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #256029;
+}
+
+.pph-trust-i svg {
+  width: 17px;
+  height: 17px;
+}
+
+.pph-trust-note {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: #4a6b4d;
+  line-height: 1.55;
+}
+
+/* =========================================================================
+   CHECKOUT
+   ========================================================================= */
+
+.woocommerce-checkout form.checkout {
+  display: grid;
+  grid-template-columns: 1.35fr .95fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.woocommerce-checkout #customer_details {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  padding: 24px 26px 10px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+}
+
+.woocommerce-checkout #customer_details .col-1,
+.woocommerce-checkout #customer_details .col-2 {
+  width: 100%;
+  float: none;
+}
+
+.woocommerce-checkout h3 {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 19px;
+  color: var(--pph-maroon);
+  padding-bottom: 9px;
+  margin: 4px 0 16px;
+  border-bottom: 2px solid var(--pph-line);
+}
+
+.woocommerce-checkout .form-row label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #3a332e;
+  margin-bottom: 5px;
+}
+
+.woocommerce-checkout .form-row .required {
+  color: var(--pph-orange);
+  text-decoration: none;
+}
+
+.woocommerce-checkout .input-text,
+.woocommerce-checkout .select2-container .select2-selection--single,
+.woocommerce-checkout select {
+  height: 46px;
+  border: 1px solid #d9d0c2 !important;
+  border-radius: 9px !important;
+  background: #fdfcfa;
+  padding: 0 13px;
+  font-size: 14.5px;
+  box-shadow: none;
+}
+
+.woocommerce-checkout textarea.input-text {
+  height: auto;
+  min-height: 86px;
+  padding: 12px 13px;
+  line-height: 1.55;
+}
+
+.woocommerce-checkout .input-text:focus,
+.woocommerce-checkout select:focus {
+  border-color: var(--pph-orange) !important;
+  background: #fff;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(232, 98, 44, .13);
+}
+
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 44px;
+  padding-left: 13px;
+}
+
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 44px;
+}
+
+/* ---- order review ---- */
+
+.woocommerce-checkout #order_review_heading {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 21px;
+  color: var(--pph-maroon);
+  margin: 0 0 12px;
+  align-self: end;
+}
+
+.woocommerce-checkout #order_review {
+  grid-column: 2;
+  grid-row: 2;
+  background: var(--pph-paper);
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  padding: 22px;
+  position: sticky;
+  top: 22px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .07);
+}
+
+.woocommerce-checkout table.woocommerce-checkout-review-order-table {
+  border: 0;
+  width: 100%;
+  margin: 0 0 6px;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table thead {
+  display: none;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table td,
+.woocommerce-checkout .woocommerce-checkout-review-order-table th {
+  border: 0;
+  border-bottom: 1px solid var(--pph-line);
+  padding: 14px 0;
+  background: transparent;
+  font-size: 14px;
+}
+
+/* ---- COVER in checkout: full cover, tidy title ---- */
+
+.pph-co-line {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.pph-co-thumb {
+  flex: 0 0 62px;
+  line-height: 0;
+}
+
+.pph-co-thumb img,
+.pph-co-img {
+  width: 62px !important;
+  height: 86px !important;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(20, 12, 8, .10);
+}
+
+.pph-co-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 600;
+  color: var(--pph-ink);
+  line-height: 1.4;
+  /* Keeps the title on natural word breaks: no hyphen splits, no stretched
+     spaces, no blank gap where the Woo template had line breaks. */
+  white-space: normal;
+  word-spacing: normal;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+.pph-co-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pph-co-name br {
+  display: none;
+}
+
+.pph-co-name .product-quantity {
+  display: block;
+  margin-top: 3px;
+  font-weight: 400;
+  font-size: 12.5px;
+  color: var(--pph-muted);
+}
+
+.pph-co-name dl.variation {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: var(--pph-muted);
+}
+
+.pph-co-name dl.variation dt,
+.pph-co-name dl.variation dd,
+.pph-co-name dl.variation p {
+  display: inline;
+  margin: 0 4px 0 0;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table tfoot th {
+  font-weight: 600;
+  color: var(--pph-muted);
+  text-transform: none;
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table tfoot .order-total th,
+.woocommerce-checkout .woocommerce-checkout-review-order-table tfoot .order-total td {
+  border-top: 2px solid #d2c7ad;
+  border-bottom: 0;
+  padding-top: 15px;
+  font-size: 18px;
+  color: var(--pph-ink);
+}
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table tfoot .order-total .amount {
+  color: var(--pph-orange);
+  font-weight: 700;
+}
+
+/* ---- payment ---- */
+
+.woocommerce-checkout #payment {
+  background: transparent;
+  border-radius: 0;
+  margin-top: 14px;
+}
+
+.woocommerce-checkout #payment ul.payment_methods {
+  border: 0;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li {
+  background: #fff;
+  border: 1.5px solid var(--pph-line);
+  border-radius: 10px;
+  padding: 13px 15px;
+  margin: 0 0 9px;
+  list-style: none;
+  transition: border-color .15s ease;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li:hover {
+  border-color: #e6c3b0;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li.is-on {
+  border-color: var(--pph-orange);
+  background: #fff6f1;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li label {
+  font-weight: 600;
+  color: var(--pph-ink);
+  display: inline;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li input[type=radio] {
+  accent-color: var(--pph-orange);
+  margin-right: 8px;
+}
+
+.woocommerce-checkout #payment div.payment_box {
+  background: #f8f3e9;
+  border-radius: 8px;
+  margin: 11px 0 0;
+  font-size: 13px;
+  color: #5c534c;
+}
+
+.woocommerce-checkout #payment div.payment_box::before {
+  border-bottom-color: #f8f3e9;
+}
+
+.woocommerce-checkout .woocommerce-terms-and-conditions-wrapper {
+  font-size: 12.5px;
+  color: var(--pph-muted);
+  margin-bottom: 12px;
+}
+
+/* =========================================================================
+   ORDER RECEIVED  ->  Your resources are ready
+   ========================================================================= */
+
+.pph-ty {
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-top: 4px solid #c9bfb4;
+  border-radius: 14px;
+  padding: 30px 26px;
+  margin: 0 0 24px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+}
+
+.pph-ty.is-ready {
+  border-top-color: #2e7d32;
+  background: linear-gradient(180deg, #f4fbf5 0%, #fff 62%);
+}
+
+.pph-ty-ic svg {
+  width: 40px;
+  height: 40px;
+  color: #8a817a;
+}
+
+.pph-ty.is-ready .pph-ty-ic svg {
+  color: #2e7d32;
+}
+
+.pph-ty-title {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 29px;
+  color: var(--pph-maroon);
+  margin: 10px 0 8px;
+}
+
+.pph-ty-sub {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--pph-muted);
+  line-height: 1.6;
+}
+
+.woocommerce-order .woocommerce-order-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+
+.woocommerce-order .woocommerce-order-overview li {
+  flex: 1 1 150px;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-left: 0;
+  border-radius: 11px;
+  padding: 13px 15px;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+  color: var(--pph-muted);
+  list-style: none;
+}
+
+.woocommerce-order .woocommerce-order-overview li strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--pph-ink);
+}
+
+.woocommerce-order h2,
+.woocommerce-account h2 {
+  font-family: Playfair Display, Georgia, serif;
+  color: var(--pph-maroon);
+  font-size: 21px;
+}
+
+.woocommerce-order .woocommerce-table--order-downloads,
+.woocommerce-order .woocommerce-table--order-details,
+.woocommerce-account table.shop_table {
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 12px;
+  border-collapse: separate;
+  overflow: hidden;
+}
+
+.woocommerce-order .woocommerce-table--order-downloads .download-product a {
+  font-weight: 700;
+  color: var(--pph-maroon);
+}
+
+.woocommerce-order .woocommerce-table--order-downloads .download-file a {
+  display: inline-block;
+  background: var(--pph-orange);
+  color: #fff !important;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.woocommerce-order .woocommerce-table--order-downloads .download-file a:hover {
+  background: var(--pph-orange-d);
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+
+@media (max-width: 980px) {
+  .woocommerce-checkout form.checkout {
+    grid-template-columns: 1fr;
+  }
+  .woocommerce-checkout #customer_details,
+  .woocommerce-checkout #order_review_heading,
+  .woocommerce-checkout #order_review {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .woocommerce-checkout #order_review {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .woocommerce-cart .entry-title,
+  .woocommerce-checkout .entry-title {
+    font-size: 26px;
+  }
+
+  .woocommerce-cart-form {
+    padding: 6px 12px 14px;
+  }
+
+  .woocommerce-cart table.shop_table_responsive tr {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 4px 14px;
+    padding: 14px 0;
+    border-top: 1px solid var(--pph-line);
+  }
+
+  .woocommerce-cart table.shop_table_responsive td {
+    border: 0 !important;
+    padding: 2px 0 !important;
+  }
+
+  .woocommerce-cart table.shop_table_responsive td.product-thumbnail {
+    grid-row: 1 / span 4;
+    width: auto;
+  }
+
+  .woocommerce-cart td.product-thumbnail img,
+  .woocommerce-cart td.product-thumbnail .pph-cart-img {
+    width: 92px !important;
+    height: 128px !important;
+  }
+
+  .woocommerce-cart table.shop_table_responsive td::before {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: var(--pph-muted);
+  }
+
+  .pph-ty-title {
+    font-size: 24px;
+  }
+
+  .woocommerce-order .woocommerce-order-overview li {
+    flex: 1 1 100%;
+  }
+}
+
+/* Modern browsers: highlight the selected card with no JavaScript at all. */
+.woocommerce-checkout #payment ul.payment_methods li:has(input:checked) {
+  border-color: var(--pph-orange);
+  background: #fff6f1;
+}
+
+
+/* =========================================================================
+   5.6  ->  BACK LINK (top left of cart and checkout)
+   ========================================================================= */
+
+.pph-back-wrap {
+  margin: 0 0 16px;
+  text-align: left;
+}
+
+.pph-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px 9px 13px;
+  background: var(--pph-paper);
+  border: 1px solid var(--pph-line);
+  border-radius: 999px;
+  font-family: Urbanist, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  color: var(--pph-maroon);
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(20, 12, 8, .05);
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+
+.pph-back:hover,
+.pph-back:focus {
+  border-color: var(--pph-orange);
+  background: #fff6f1;
+  color: var(--pph-orange-d);
+}
+
+.pph-back-ic {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform .15s ease;
+}
+
+.pph-back:hover .pph-back-ic {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 720px) {
+  .pph-back {
+    font-size: 12.5px;
+    padding: 8px 14px 8px 11px;
+  }
+  .pph-back-wrap {
+    margin-bottom: 12px;
+  }
+}
+
+
+/* =========================================================================
+   5.6.1  ->  CHECKOUT LINE ITEM, FINAL LAYOUT
+
+   The order review table is now a fixed layout table, so the Product column
+   can never squeeze the Subtotal column into a single narrow strip. Cover and
+   title sit on one row, centred against each other, and the title is never
+   hyphenated or broken mid word.
+   ========================================================================= */
+
+.woocommerce-checkout-review-order-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.woocommerce-checkout-review-order-table th,
+.woocommerce-checkout-review-order-table td {
+  vertical-align: middle;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.woocommerce-checkout-review-order-table th.product-name,
+.woocommerce-checkout-review-order-table td.product-name {
+  width: 64%;
+  text-align: left;
+  padding: 16px 10px 16px 0;
+}
+
+.woocommerce-checkout-review-order-table th.product-total,
+.woocommerce-checkout-review-order-table td.product-total,
+.woocommerce-checkout-review-order-table tfoot th,
+.woocommerce-checkout-review-order-table tfoot td {
+  width: 36%;
+  text-align: right;
+  white-space: nowrap;
+  padding: 16px 0;
+}
+
+.woocommerce-checkout-review-order-table thead th {
+  white-space: nowrap;
+  font-family: Urbanist, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: var(--pph-muted);
+  border-bottom: 1px solid var(--pph-line);
+  padding-bottom: 10px;
+}
+
+.woocommerce-checkout-review-order-table tfoot .order-total th,
+.woocommerce-checkout-review-order-table tfoot .order-total td {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--pph-maroon);
+}
+
+/* ---- the line itself: cover + title on one row ---- */
+
+.pph-co-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.pph-co-thumb {
+  flex: 0 0 54px;
+  width: 54px;
+  line-height: 0;
+}
+
+.pph-co-thumb img,
+.pph-co-img {
+  width: 54px !important;
+  max-width: 54px !important;
+  height: 74px !important;
+  object-fit: contain;
+  display: block;
+  margin: 0 !important;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 5px;
+  padding: 3px;
+  box-shadow: 0 1px 4px rgba(20, 12, 8, .07);
+}
+
+.pph-co-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: block;
+  font-family: Urbanist, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--pph-ink);
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.pph-co-name .product-quantity {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--pph-muted);
+}
+
+.pph-co-name dl.variation {
+  margin: 3px 0 0;
+  font-size: 12.5px;
+  color: var(--pph-muted);
+}
+
+.pph-co-name dl.variation dt,
+.pph-co-name dl.variation dd,
+.pph-co-name dl.variation dd p {
+  display: inline;
+  margin: 0 4px 0 0;
+}
+
+@media (max-width: 600px) {
+  .pph-co-thumb {
+    flex: 0 0 46px;
+    width: 46px;
+  }
+  .pph-co-thumb img,
+  .pph-co-img {
+    width: 46px !important;
+    max-width: 46px !important;
+    height: 64px !important;
+  }
+  .pph-co-name {
+    font-size: 13.5px;
+  }
+  .woocommerce-checkout-review-order-table th.product-name,
+  .woocommerce-checkout-review-order-table td.product-name {
+    width: 60%;
+  }
+  .woocommerce-checkout-review-order-table th.product-total,
+  .woocommerce-checkout-review-order-table td.product-total {
+    width: 40%;
+  }
+}
+
+
+/* =========================================================================
+   5.6.3  ->  CHECKOUT: TWO COLUMNS, TITLE ONLY
+
+   Customer details on the left, Your order on the right, exactly as before,
+   but without a cover image in the summary.
+
+   The right column is given a hard minimum width of 340px. That single line is
+   what keeps a long book title on normal lines instead of collapsing into one
+   word per line. Below 980px the two columns stack.
+
+   These rules come last in the file, so they win over the earlier ones.
+   ========================================================================= */
+
+.woocommerce-checkout .entry-content,
+.woocommerce-cart .entry-content {
+  max-width: 1180px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.woocommerce-checkout form.checkout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(340px, .9fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.woocommerce-checkout #customer_details {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: auto;
+  max-width: none;
+  float: none;
+  min-width: 0;
+  margin: 0;
+}
+
+.woocommerce-checkout #order_review_heading {
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  float: none;
+  margin: 0 0 10px;
+}
+
+.woocommerce-checkout #order_review {
+  grid-column: 2;
+  grid-row: 2;
+  width: auto;
+  max-width: none;
+  float: none;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+  position: sticky;
+  top: 22px;
+}
+
+@media (max-width: 980px) {
+  .woocommerce-checkout form.checkout {
+    grid-template-columns: 1fr;
+  }
+  .woocommerce-checkout #customer_details,
+  .woocommerce-checkout #order_review_heading,
+  .woocommerce-checkout #order_review {
+    grid-column: 1;
+    grid-row: auto;
+    position: static;
+  }
+}
+
+/* ---- order summary table ---- */
+
+.woocommerce-checkout-review-order-table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+.woocommerce-checkout-review-order-table th,
+.woocommerce-checkout-review-order-table td {
+  vertical-align: middle;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  padding: 14px 0;
+}
+
+.woocommerce-checkout-review-order-table th.product-name,
+.woocommerce-checkout-review-order-table td.product-name {
+  width: auto;
+  text-align: left;
+  padding-right: 18px;
+}
+
+.woocommerce-checkout-review-order-table th.product-total,
+.woocommerce-checkout-review-order-table td.product-total,
+.woocommerce-checkout-review-order-table tfoot th,
+.woocommerce-checkout-review-order-table tfoot td {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---- title only, one clean line of text ---- */
+
+.pph-co-thumb,
+.pph-co-img,
+.woocommerce-checkout-review-order-table td.product-name img {
+  display: none;
+}
+
+.pph-co-line {
+  display: block;
+}
+
+.pph-co-name {
+  display: block;
+  min-width: 0;
+  font-family: Urbanist, -apple-system, Segoe UI, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--pph-ink);
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.pph-co-name br {
+  display: none;
+}
+
+.pph-co-name .product-quantity {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pph-muted);
+}
+
+.pph-co-name dl.variation {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--pph-muted);
+}
+
+.pph-co-name dl.variation dt,
+.pph-co-name dl.variation dd,
+.pph-co-name dl.variation dd p {
+  display: inline;
+  margin: 0 4px 0 0;
+}
+
+
+/* =========================================================================
+   5.6.4  ->  ONE JOINED SUMMARY CARD, AND MONEY NEVER BREAKS
+
+   - Your order heading and the summary table are a single card now, joined
+     with no seam, and pinned to the top of the right column.
+   - Every price, subtotal and total is nowrap, so no digit can ever drop to
+     the next line. Table headings do not break either.
+   ========================================================================= */
+
+.woocommerce-checkout form.checkout {
+  gap: 0 28px;
+}
+
+.woocommerce-checkout #order_review_heading {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  padding: 20px 24px 0;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+  box-shadow: none;
+}
+
+.woocommerce-checkout #order_review {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0;
+  padding: 6px 24px 22px;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-top: 0;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+}
+
+@media (max-width: 980px) {
+  .woocommerce-checkout form.checkout {
+    gap: 0;
+  }
+  .woocommerce-checkout #order_review_heading {
+    margin-top: 26px;
+  }
+}
+
+/* ---- money on one line, always ---- */
+
+/* Only the money itself is nowrap. Putting nowrap on the whole cell is what
+   pushed the shipping line and Change address outside the card. */
+.woocommerce .cart_item td.product-price,
+.woocommerce .cart_item td.product-subtotal,
+.woocommerce table.shop_table thead th,
+.woocommerce .cart_totals th,
+.woocommerce .cart_totals .amount,
+.woocommerce-checkout-review-order-table .amount,
+.woocommerce .woocommerce-Price-amount,
+.woocommerce .order-total .amount,
+.woocommerce bdi {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+/* Nothing on the cart or checkout may push the page sideways. */
+body.woocommerce-cart,
+body.woocommerce-checkout {
+  overflow-x: hidden;
+}
+
+.woocommerce .cart_totals table,
+.woocommerce table.shop_table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.woocommerce .cart_totals td,
+.woocommerce .cart_totals th {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.woocommerce table.cart td.product-quantity,
+.woocommerce table.cart th.product-quantity {
+  white-space: nowrap;
+}
+
+.woocommerce table.shop_table thead th {
+  font-size: 10.5px;
+  letter-spacing: .5px;
+}
+
+
+/* =========================================================================
+   5.6.5  ->  MOBILE CART AND CHECKOUT, PROPERLY BUILT
+
+   Three real problems were fixed here.
+
+   1. Vertical text. WooCommerce buttons were being squeezed into a very narrow
+      box, so Apply coupon and Update cart wrapped one letter per line. Every
+      button is now auto width and nowrap, and the coupon field sits on one row
+      with its button.
+
+   2. Overlapping labels. On a small screen WooCommerce prints the column name
+      through td::before and floats it. Floating on top of the value is what
+      made SUBTOTAL and the amount sit on each other. Each cell is a flex row
+      now: label on the left, value on the right, never touching.
+
+   3. The Back link was glued to the very top of the screen, under the phone
+      notch. It has breathing room now.
+   ========================================================================= */
+
+/* ---- buttons never break into vertical letters ---- */
+
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce .cart input.button,
+.woocommerce .actions .button,
+.woocommerce .coupon .button,
+.woocommerce #place_order {
+  width: auto;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+  line-height: 1.2;
+}
+
+/* ---- coupon field and its button on one row ---- */
+
+.woocommerce .cart .actions .coupon {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  float: none;
+  padding: 0;
+  margin: 0 0 14px;
+}
+
+.woocommerce .cart .actions .coupon label {
+  display: none;
+}
+
+.woocommerce .cart .actions .coupon #coupon_code,
+.woocommerce .cart .actions .coupon .input-text {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  height: 46px;
+  margin: 0;
+}
+
+.woocommerce .cart .actions .coupon .button,
+.woocommerce .cart .actions button[name=apply_coupon] {
+  flex: 0 0 auto;
+  height: 46px;
+  padding: 0 18px;
+  margin: 0;
+}
+
+.woocommerce .cart .actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 16px 0 0;
+}
+
+.woocommerce .cart .actions button[name=update_cart] {
+  align-self: flex-start;
+  height: 46px;
+  padding: 0 20px;
+  margin: 0;
+}
+
+/* ---- responsive cart table: label left, value right ---- */
+
+@media (max-width: 782px) {
+
+  .woocommerce table.shop_table_responsive,
+  .woocommerce-page table.shop_table_responsive {
+    border: 0;
+  }
+
+  .woocommerce table.shop_table_responsive tr,
+  .woocommerce-page table.shop_table_responsive tr {
+    display: block;
+    border-bottom: 1px solid var(--pph-line);
+    padding: 6px 0;
+  }
+
+  .woocommerce table.shop_table_responsive tr td,
+  .woocommerce-page table.shop_table_responsive tr td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+    text-align: right;
+    padding: 10px 2px;
+    border: 0;
+  }
+
+  .woocommerce table.shop_table_responsive tr td::before,
+  .woocommerce-page table.shop_table_responsive tr td::before {
+    position: static;
+    float: none;
+    display: block;
+    width: auto;
+    flex: 0 0 auto;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: var(--pph-muted);
+    white-space: nowrap;
+  }
+
+  .woocommerce table.shop_table_responsive tr td.product-remove,
+  .woocommerce table.shop_table_responsive tr td.product-thumbnail {
+    justify-content: center;
+  }
+
+  .woocommerce table.shop_table_responsive tr td.product-remove::before,
+  .woocommerce table.shop_table_responsive tr td.product-thumbnail::before {
+    content: none;
+    display: none;
+  }
+
+  .woocommerce table.shop_table_responsive tr td.product-name {
+    text-align: right;
+  }
+
+  .woocommerce table.shop_table_responsive tr td.product-name a {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .woocommerce table.shop_table_responsive tr td.product-quantity .quantity {
+    margin: 0;
+  }
+
+  /* Cart totals rows use the same label / value pattern. */
+  .woocommerce .cart_totals table tr {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--pph-line);
+  }
+
+  .woocommerce .cart_totals table th,
+  .woocommerce .cart_totals table td {
+    display: block;
+    width: auto;
+    padding: 0;
+    border: 0;
+    text-align: right;
+  }
+
+  .woocommerce .cart_totals table th {
+    flex: 0 0 auto;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: var(--pph-muted);
+    white-space: nowrap;
+  }
+
+  /* The shipping row carries several lines, so it gets a full width block. */
+  .woocommerce .cart_totals table tr.woocommerce-shipping-totals td {
+    flex: 1 1 100%;
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  .woocommerce .cart_totals table tr.woocommerce-shipping-totals ul#shipping_method {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .woocommerce .cart_totals table tr.woocommerce-shipping-totals li {
+    margin: 0 0 4px;
+  }
+
+  .woocommerce .cart_totals .woocommerce-shipping-destination,
+  .woocommerce .cart_totals .shipping-calculator-button {
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* Coupon stays on one row even on the narrowest phone. */
+  .woocommerce .cart .actions .coupon #coupon_code {
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .woocommerce .cart .actions .coupon .button {
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .woocommerce .cart .actions button[name=update_cart] {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  /* Checkout stays readable on a phone. */
+  .woocommerce-checkout #order_review_heading,
+  .woocommerce-checkout #order_review {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .woocommerce-checkout-review-order-table th,
+  .woocommerce-checkout-review-order-table td {
+    padding: 12px 0;
+  }
+}
+
+/* ---- Back link: clear of the phone notch ---- */
+
+.pph-back-wrap {
+  margin: 18px 0 18px;
+}
+
+@media (max-width: 782px) {
+  .pph-back-wrap {
+    margin: 22px 0 16px;
+  }
+  .woocommerce-cart .site-content,
+  .woocommerce-checkout .site-content {
+    padding-top: 10px;
+  }
+}
+
+
+/* =========================================================================
+   5.6.6  ->  MOBILE OVERFLOW FIX ON CART TOTALS
+
+   The shipping row was being dragged outside the card, so the whole page could
+   be scrolled sideways. Reason: nowrap had been applied to the entire totals
+   cell, and that cell holds three lines of text, not just an amount.
+   The shipping row is a full width block now and only the amount is nowrap.
+   ========================================================================= */
+
+@media (max-width: 782px) {
+
+  .woocommerce .cart_totals table tr.woocommerce-shipping-totals {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .woocommerce .cart_totals table tr.woocommerce-shipping-totals th {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0 0 6px;
+  }
+
+  .woocommerce .cart_totals table tr.woocommerce-shipping-totals td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    margin: 0;
+    white-space: normal;
+  }
+
+  .woocommerce .cart_totals ul#shipping_method {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .woocommerce .cart_totals ul#shipping_method li {
+    margin: 0 0 6px;
+    white-space: normal;
+  }
+
+  .woocommerce .cart_totals .woocommerce-shipping-destination,
+  .woocommerce .cart_totals .shipping-calculator-button {
+    display: block;
+    margin-top: 6px;
+    white-space: normal;
+  }
+
+  /* The product name may use the full width of its row. */
+  .woocommerce table.shop_table_responsive tr td.product-name {
+    align-items: flex-start;
+  }
+
+  .woocommerce table.shop_table_responsive tr td.product-name a {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+
+/* =========================================================================
+   5.6.7  ->  CATEGORY LINK AND CATEGORY LISTING
+
+   The Books label above a book title is a clickable trail now. It opens the
+   Books listing, and that listing shows its sub categories first, then the
+   books. The listing is styled here so it never looks like the plain
+   WooCommerce archive again. Covers are shown whole, never cropped.
+   ========================================================================= */
+
+.pph-pp-cat a:hover {
+  color: var(--pph-orange);
+  text-decoration: underline;
+}
+
+.pph-cat-sep {
+  margin: 0 2px;
+  color: var(--pph-muted);
+}
+
+/* ---- listing shell ---- */
+
+.woocommerce.archive .site-content,
+.post-type-archive-product .site-content,
+.tax-product_cat .site-content {
+  background: var(--pph-cream);
+}
+
+.post-type-archive-product .entry-content,
+.tax-product_cat .entry-content,
+.woocommerce.archive .entry-content {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.woocommerce .woocommerce-products-header {
+  padding: 6px 0 2px;
+}
+
+.woocommerce .woocommerce-products-header__title,
+.tax-product_cat .entry-title {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--pph-maroon);
+  margin: 0 0 6px;
+}
+
+.woocommerce .term-description {
+  color: var(--pph-muted);
+  max-width: 720px;
+  margin: 0 0 14px;
+}
+
+.woocommerce .woocommerce-result-count {
+  color: var(--pph-muted);
+  font-size: 13px;
+}
+
+.woocommerce .woocommerce-ordering select {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--pph-line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--pph-ink);
+}
+
+/* ---- product and sub category grid ---- */
+
+.woocommerce ul.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+  content: none;
+}
+
+.woocommerce ul.products li.product {
+  width: auto;
+  float: none;
+  margin: 0;
+  padding: 14px 14px 18px;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(20, 12, 8, .06);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(20, 12, 8, .10);
+}
+
+/* The cover is never cropped. */
+.woocommerce ul.products li.product img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  margin: 0 0 12px;
+  border-radius: 8px;
+  background: var(--pph-paper);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce ul.products li.product h2 {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--pph-ink);
+  padding: 0;
+  margin: 0 0 8px;
+  overflow-wrap: break-word;
+}
+
+.woocommerce ul.products li.product .price {
+  color: var(--pph-ink);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  white-space: nowrap;
+}
+
+.woocommerce ul.products li.product .price del {
+  color: var(--pph-muted);
+  font-weight: 400;
+  margin-right: 6px;
+}
+
+.woocommerce ul.products li.product .button {
+  margin: auto 0 0;
+  display: inline-block;
+  background: var(--pph-orange);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.woocommerce ul.products li.product .button:hover {
+  background: var(--pph-orange-d);
+  color: #fff;
+}
+
+.woocommerce ul.products li.product .onsale {
+  background: var(--pph-maroon);
+  border-radius: 999px;
+  padding: 4px 12px;
+  min-height: 0;
+  min-width: 0;
+  line-height: 1.6;
+  top: 12px;
+  right: 12px;
+  left: auto;
+  margin: 0;
+}
+
+/* Sub category tiles sit above the books and read as folders. */
+.woocommerce ul.products li.product-category {
+  justify-content: center;
+  background: var(--pph-paper);
+}
+
+.woocommerce ul.products li.product-category img {
+  height: 150px;
+}
+
+.woocommerce ul.products li.product-category h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.woocommerce ul.products li.product-category h2 .count {
+  display: inline-block;
+  margin-left: 6px;
+  background: transparent;
+  color: var(--pph-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ---- pagination ---- */
+
+.woocommerce nav.woocommerce-pagination ul {
+  border: 0;
+  margin: 26px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+  border: 0;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  border: 1px solid var(--pph-line);
+  border-radius: 10px;
+  background: #fff;
+  min-width: 40px;
+  padding: 9px 12px;
+  color: var(--pph-ink);
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current {
+  background: var(--pph-orange);
+  border-color: var(--pph-orange);
+  color: #fff;
+}
+
+@media (max-width: 980px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 782px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .woocommerce ul.products li.product img {
+    height: 180px;
+  }
+  .woocommerce .woocommerce-products-header__title,
+  .tax-product_cat .entry-title {
+    font-size: 26px;
+  }
+}
+
+
+/* =========================================================================
+   5.6.8  ->  BROWSE ROW, AND THE LISTING DESIGN FORCED OVER THE THEME
+
+   Two things were wrong after 5.6.7.
+
+   1. The store has no parent categories, everything is flat, so WooCommerce
+      had no sub categories to show. A Browse by category row is printed now.
+      It shows the children when they exist, and the neighbouring categories
+      when the list is flat, so a click on Books always leads somewhere.
+
+   2. The listing still looked plain. Astra styles ul.products with stronger
+      selectors than ours, so the grid never applied. The listing rules are
+      forced below.
+   ========================================================================= */
+
+/* ---- browse by category row ---- */
+
+.pph-cats {
+  margin: 6px 0 22px;
+}
+
+.pph-cats-t {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: var(--pph-muted);
+  margin: 0 0 12px;
+}
+
+.pph-cats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.pph-cat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 14px 12px 16px;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--pph-ink);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.pph-cat-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--pph-orange);
+  box-shadow: 0 10px 26px rgba(20, 12, 8, .10);
+  color: var(--pph-ink);
+}
+
+.pph-cat-tile.is-on {
+  border-color: var(--pph-orange);
+  background: #fff6f1;
+}
+
+.pph-cat-thumb {
+  display: block;
+  width: 100%;
+  height: 108px;
+  margin: 0 0 8px;
+  border-radius: 8px;
+  background: var(--pph-paper);
+  overflow: hidden;
+}
+
+.pph-cat-thumb img {
+  width: 100%;
+  height: 108px;
+  object-fit: contain;
+  display: block;
+}
+
+.pph-cat-name {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--pph-maroon);
+  overflow-wrap: break-word;
+}
+
+.pph-cat-count {
+  font-size: 12px;
+  color: var(--pph-muted);
+}
+
+/* ---- listing grid, forced over the theme ---- */
+
+.woocommerce ul.products,
+.woocommerce-page ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  margin: 18px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.woocommerce ul.products li.product-category {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  clear: none !important;
+  margin: 0 !important;
+  padding: 14px 14px 18px !important;
+  background: #fff;
+  border: 1px solid var(--pph-line);
+  border-radius: 14px;
+  display: flex !important;
+  flex-direction: column;
+  text-align: center;
+}
+
+.woocommerce ul.products li.product img,
+.woocommerce-page ul.products li.product img {
+  width: 100% !important;
+  height: 240px !important;
+  object-fit: contain !important;
+  margin: 0 0 12px !important;
+  border-radius: 8px;
+  background: var(--pph-paper);
+}
+
+.woocommerce ul.products li.product .button {
+  margin: auto 0 0 !important;
+  width: auto !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 980px) {
+  .woocommerce ul.products,
+  .woocommerce-page ul.products {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 782px) {
+  .woocommerce ul.products,
+  .woocommerce-page ul.products {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+  .woocommerce ul.products li.product img,
+  .woocommerce-page ul.products li.product img {
+    height: 180px !important;
+  }
+  .pph-cats-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pph-cat-thumb,
+  .pph-cat-thumb img {
+    height: 90px;
+  }
+}
+
+
+/* =========================================================================
+   5.7.0  ->  DIGITAL ONLY CHECKOUT
+   A cart that holds nothing but ebooks never needs a postal address, so the
+   address rows are removed in PHP. The country field stays in the form for
+   the payment gateway, but it is never shown.
+   ========================================================================= */
+
+.woocommerce form .form-row.pph-field-hidden,
+.woocommerce-page form .form-row.pph-field-hidden,
+.pph-field-hidden {
+  display: none !important;
+}
+
+/* With the address gone the remaining rows sit in one clean column. */
+.woocommerce-checkout #customer_details .form-row {
+  width: 100%;
+  float: none;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.woocommerce-checkout #customer_details .col-1,
+.woocommerce-checkout #customer_details .col-2 {
+  width: 100%;
+  max-width: 100%;
+  float: none;
+  padding: 0;
+}
+
+.woocommerce-checkout #customer_details .woocommerce-billing-fields h3 {
+  font-family: Playfair Display, Georgia, serif;
+  font-size: 22px;
+  color: #3f1717;
+  margin: 0 0 14px;
+}
+
+
+/* =========================================================================
+   5.11.2 / 5.11.3  ->  NOTICE ICON, PAGE TITLE INDENT, BACK LINK SPACE
+   ========================================================================= */
+
+/* ---- 1. no icon at all on the notices ---------------------------------- */
+/* The tick is drawn by the theme with a pseudo element that is placed on top
+   of the sentence. Correcting only its position was not enough, because the
+   theme kept winning, so the icon is switched off and the text starts at a
+   normal padding. */
+
+body .woocommerce-message::before,
+body .woocommerce-info::before,
+body .woocommerce-error::before,
+body.woocommerce-cart .woocommerce-message::before,
+body.woocommerce-checkout .woocommerce-message::before,
+body.woocommerce-checkout .woocommerce-message::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+body .woocommerce-message,
+body .woocommerce-info,
+body .woocommerce-error {
+  position: relative;
+  padding: 16px 22px !important;
+  background-image: none !important;
+  line-height: 1.55;
+  list-style: none;
+}
+
+body .woocommerce-message .button,
+body .woocommerce-info .button {
+  float: right;
+  margin: -2px 0 0 18px;
+}
+
+/* ---- 2. Cart and Checkout headings line up with the cards below --------- */
+
+.woocommerce-cart .entry-title,
+.woocommerce-checkout .entry-title,
+.woocommerce-account .entry-title,
+.woocommerce-cart h1.entry-title,
+.woocommerce-checkout h1.entry-title {
+  box-sizing: border-box;
+  max-width: 1180px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 18px !important;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* ---- 3. real space above the back link --------------------------------- */
+/* The site content padding is held down by the Additional CSS in the theme
+   customizer, which uses important. The space is therefore carried by the
+   back link itself, with a selector that outranks it. */
+
+body.woocommerce-cart .pph-back-wrap,
+body.woocommerce-checkout .pph-back-wrap {
+  margin-top: 34px !important;
+  margin-bottom: 20px !important;
+}
+
+body.woocommerce-cart .woocommerce-notices-wrapper,
+body.woocommerce-checkout .woocommerce-notices-wrapper {
+  margin-top: 8px;
+}
+
+@media (max-width: 782px) {
+  body.woocommerce-cart .pph-back-wrap,
+  body.woocommerce-checkout .pph-back-wrap {
+    margin-top: 26px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .woocommerce-cart .entry-title,
+  .woocommerce-checkout .entry-title {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+
+/* =========================================================================
+   5.11.5  ->  NOTICE TICK IN FRONT OF THE SENTENCE
+   ========================================================================= */
+/* The theme drew its own tick on top of the first word. That one stays off.
+   A tick of our own is drawn here as the first item of a flex row, so it can
+   never sit over the text. */
+
+body .woocommerce-message,
+body .woocommerce-info {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body .woocommerce-message::after {
+  content: "\2713";
+  order: -1;
+  flex: 0 0 auto;
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1f7ae0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 !important;
+}
+
+body .woocommerce-message .button,
+body .woocommerce-info .button {
+  order: 9;
+  float: none !important;
+  margin: 0 0 0 auto !important;
+}

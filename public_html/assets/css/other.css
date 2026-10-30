@@ -1,0 +1,336 @@
+/************************************* other-swiper-wrap css start *************************************/
+/*========================================
+    other-swiper-wrap swiper-buttons css
+========================================*/
+.other-swiper-wrap {
+    position: relative;
+}
+.other-swiper-wrap .swiper-buttons {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 0;
+}
+.other-swiper-wrap .swiper-buttons .swiper-buttons-wrap {
+    display: inline-flex;
+}
+@media (min-width: 768px) {
+    .other-swiper-wrap .swiper-buttons {
+        margin-top: 0px;
+    }
+    .other-swiper-wrap .swiper-buttons .swiper-buttons-wrap {
+        display: block;
+    }
+}
+
+/* other-swiper-wrap swiper-buttons navigation css */
+.other-swiper-wrap .swiper-buttons button {
+    color: var(--secondary-font-color);
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--extra-font-color);
+    margin-right: 10px;
+    border: 1px solid rgba(var(--border-color),var(--border-opacity));
+    border-radius: 100%;
+    box-shadow: rgba(var(--box-shadow-outer),var(--box-shadow-outer-opacity));
+    -webkit-transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out,background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;
+}
+.other-swiper-wrap .swiper-buttons button:last-child:last-child {
+    margin: 0px;
+}
+.other-swiper-wrap .swiper-buttons button:hover {
+    color: var(--extra-font-color);
+    background-color: var(--primary-font-color);
+    border-color: var(--primary-font-color);
+}
+@media (min-width: 768px) {
+    .other-swiper-wrap .swiper-buttons button {
+        position: absolute;
+        z-index: 1;
+        margin-right: 0px;
+    }
+    .other-swiper-wrap .swiper-buttons button.swiper-prev {
+        left: 0;
+        transform: translateX(-50%);
+    }
+    .other-swiper-wrap .swiper-buttons button.swiper-next {
+        right: 0;
+        transform: translateX(50%);
+    }
+}
+@media (min-width: 1200px) {
+    .other-swiper-wrap .swiper-buttons button {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/*========================================
+    other-swiper-wrap swiper-dot css
+========================================*/
+.other-swiper-wrap .swiper-dots {
+    margin-top: 30px;
+    line-height: 0;
+}
+@media (min-width: 1200px) {
+    .other-swiper-wrap .swiper-dots {
+        margin-top: 50px;
+    }
+}
+
+/* other-swiper-wrap swiper-dot-pagination css */
+.other-swiper-wrap .swiper-dots .swiper-pagination {
+    width: unset;
+    position: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -5px 0px 0px -5px;
+}
+.other-swiper-wrap .swiper-dots .swiper-pagination span {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    margin: 5px 0px 0px 5px;
+    opacity: 1;
+    border: 1px solid var(--primary-font-color);
+}
+.other-swiper-wrap .swiper-dots .swiper-pagination span.swiper-pagination-bullet-active {
+    background-color: var(--primary-font-color);
+    border-color: var(--primary-font-color);
+}
+/************************************* other-swiper-wrap css end *************************************/
+
+/************************************* other-tab-title css start *************************************/
+/*====================================
+    other-tab-title css
+====================================*/
+.other-tab-title span {
+    border-bottom: 2px solid;
+}
+/************************************* other-tab-title css end *************************************/
+
+/************************************* other-tab css start *************************************/
+/*====================================
+    other-tab title css
+====================================*/
+.other-tab a[aria-expanded="true"] {
+    color: var(--primary-font-color);
+}
+.other-tab a[aria-expanded="true"] span.other-tab-icon i::before {
+    content: "\f1af";
+}
+/************************************* other-tab css end *************************************/
+
+/************************************* index css start *************************************/
+/*====================================
+    question-index css
+====================================*/
+.question-index {
+    counter-reset: Questions;
+}
+.question-index .question-sub-index::before {
+    counter-increment: Questions;
+    content: "Q." counter(Questions) " ";
+}
+
+/*====================================
+    number-index css
+====================================*/
+.number-index {
+    counter-reset: number;
+}
+.number-index .number-sub-index {
+    counter-reset: sub-number;
+}
+.number-index .number-sub-index::before {
+    counter-increment: number;
+    content: counter(number) ". ";
+}
+.number-index .p-number::before {
+    counter-increment: sub-number;
+    content: counter(number) "."counter(sub-number)" ";
+}
+/************************************* index css end *************************************/
+
+/************************************* about-us css start *************************************/
+/*====================================
+    about-testimonial css
+====================================*/
+.about-testimonial {
+    position: relative;
+    z-index: 1;
+}
+.about-testimonial::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: var(--section-before-height);
+    background-color: var(--extra-bgcolor);
+    z-index: -1;
+}
+
+/* about-testimonial swiper css */
+.about-testimonial .about-testislider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+
+/* about-testi-content css */
+.about-testimonial .about-testislider p {
+    line-height: 28px;
+}
+@media (min-width: 1200px) {
+    .about-testimonial .about-testislider p {
+        line-height: 36px;
+    }
+}
+
+/*====================================
+    about-us-banner css
+====================================*/
+.about-us-banner {
+    position: relative;
+    z-index: 1;
+}
+.about-us-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 50%;
+    background-color: var(--extra-bgcolor);
+    z-index: -1;
+}
+/************************************* about-us css end *************************************/
+
+/************************************* about-us2 css start *************************************/
+/*====================================
+    about-story-video css
+====================================*/
+.about-us .about-story-video {
+    z-index: 1;
+}
+.about-us .about-story-video::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(var(--border-color),var(--border-opacity));
+    z-index: -1;
+}
+/************************************* about-us2 css end *************************************/
+
+/************************************* contact-us css start *************************************/
+/*====================================
+    contact-location css
+====================================*/
+.contact-location.section-overlay {
+    margin-top: -30px;
+}
+
+/* contact-location-location swiper css */
+.contact-location .contact-locationslider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .contact-location .contact-locationslider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .contact-location .contact-locationslider.swiper:not(.swiper-initialized) .swiper-slide:not([style]) {
+        width: 33.33%;
+    }
+}
+
+/*====================================
+    contact-map css
+====================================*/
+.contact-map iframe {
+    height: 320px;
+}
+@media (min-width: 768px) {
+    .contact-map iframe {
+        height: 400px;
+    }
+}
+@media (min-width: 1200px) {
+    .contact-map iframe {
+        height: 500px;
+    }
+}
+/************************************* contact-us css start *************************************/
+
+/************************************* faqs css start *************************************/
+/*====================================
+    faqs-collapse-group css
+====================================*/
+.faqs-collapse-group>* {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(var(--border-color),var(--border-opacity));
+}
+.faqs-collapse-group>*:first-child {
+    margin-top: 0px;
+    padding-top: 0px;
+    border-top: none;
+}
+/************************************* faqs css end *************************************/
+
+/************************************* store css start *************************************/
+/*====================================
+    store css
+====================================*/
+.store .store-content .store-info {
+    margin-top: -12px;
+}
+.store .store-content .store-info>* {
+    margin-top: 12px;
+}
+/************************************* store css end *************************************/
+
+/************************************* coming-soon css start *************************************/
+/*=======================================
+    coming-content css
+=======================================*/
+.coming-content span.coming-content-title {
+    letter-spacing: 5px;
+}
+
+/*====================================
+    coming-soon-news css
+====================================*/
+@media (min-width: 768px) {
+    .coming-news form.coming-form .coming-wrap input.coming-notify-input {
+        border-radius: var(--border-radius2) 0px 0px var(--border-radius2);
+    }
+    .coming-news form.coming-form .coming-wrap button.coming-notify-btn {
+        border-radius: 0px var(--border-radius2) var(--border-radius2) 0px;
+    }
+}
+/************************************* coming-soon css end *************************************/
+
+/************************************* keyframes css start *************************************/
+/*====================================
+    blinking keyframes css
+====================================*/
+.blinking {
+    -webkit-animation: blinking 2s cubic-bezier(.4, 0, .6, 1) infinite;
+    animation: blinking 2s cubic-bezier(.4, 0, .6, 1) infinite;
+}
+@-webkit-keyframes blinking {
+    50% {
+        opacity: 0.5;
+    }
+}
+@keyframes blinking {
+    50% {
+        opacity: 0.5;
+    }
+}
+/************************************* keyframes css end *************************************/
